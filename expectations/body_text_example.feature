@@ -2,7 +2,7 @@
 Feature: Body - text example
   
   Background:
-    Given expected HTTP body is defined by following "textual example": 
+    Given you define expected HTTP body by following "textual example": 
     """
     One, two, free, four.
     Orange, strawberry, banana?
@@ -15,7 +15,7 @@ Feature: Body - text example
     One, two, free, four.
     Orange, strawberry, banana?
     """
-    Then it should set some error for "body"
+    Then Gavel will set some error for "body"
   
   Scenario: extra line in real payload textual body
     When real HTTP body is following:
@@ -25,7 +25,7 @@ Feature: Body - text example
     Orange, strawberry, banana?
     Dog, cat, mouse!
     """
-    Then it should set some error for "body"
+    Then Gavel will set some error for "body"
   
   Scenario: line is changed in real textual body
     When real HTTP body is following:
@@ -34,7 +34,7 @@ Feature: Body - text example
     Orange, strawberry, banana?
     Dog, cat, mouse!
     """
-    Then it should set some error for "body"
+    Then Gavel will set some error for "body"
 
   Scenario: text in body equals difened example
     When real HTTP body is following:
@@ -43,6 +43,6 @@ Feature: Body - text example
     Orange, strawberry, banana?
     Dog, cat, mouse!
     """
-    Then it should not set any errors for "body"
+    Then Gavel will NOT set any errors for "body"
 
 

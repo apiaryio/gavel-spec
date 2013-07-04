@@ -2,7 +2,7 @@
 Feature: Body - JSON exapmle
 
   Background: 
-    Given expected HTTP body is defined by following "JSON example":
+    Given you define expected HTTP body by following "JSON example":
     """
     {
       "object": {
@@ -33,7 +33,7 @@ Feature: Body - JSON exapmle
       "string": "Hello World"
     }
     """
-    Then it should set some error for "body"
+    Then Gavel will set some error for "body"
   
   Scenario: extra key in real JSON body
     When real HTTP body is following:
@@ -52,7 +52,7 @@ Feature: Body - JSON exapmle
       "boolean": true
     }    
     """    
-    Then it should not set any errors for "body"
+    Then Gavel will NOT set any errors for "body"
 
   Scenario: different values in real JSON body
     When real HTTP body is following:
@@ -72,7 +72,7 @@ Feature: Body - JSON exapmle
 
     }    
     """    
-    Then it should set some error for "body"
+    Then Gavel will set some error for "body"
 
 
   Scenario: array member is missing in real JSON body
@@ -90,7 +90,7 @@ Feature: Body - JSON exapmle
       "string": "Foo bar",
     }    
     """     
-    Then it should set some error for "body"
+    Then Gavel will set some error for "body"
 
   Scenario: extra array member in real JSON body
     When real HTTP body is following:
@@ -109,6 +109,6 @@ Feature: Body - JSON exapmle
       "string": "Foo bar"
     }    
     """ 
-    Then it should not set any errors for "body"
+    Then Gavel will NOT set any errors for "body"
     
 

@@ -2,7 +2,7 @@
 Feature: Body - JSON schema
 
   Background: 
-    Given expected HTTP body is defined by following "JSON schema":
+    Given you define expected HTTP body by following "JSON schema":
     """
     {
       "type":"object",
@@ -47,9 +47,9 @@ Feature: Body - JSON schema
       "string": "Hello World"
     }
     """
-    Then it should not set any errors for "body"
+    Then Gavel will NOT set any errors for "body"
   
-  Scenario: payload body not validad againts schema
+  Scenario: payload body NOT validad againts schema
     When real HTTP body is following:
     """
     {
@@ -60,4 +60,4 @@ Feature: Body - JSON schema
       "string": "Hello World"
     }
     """
-    Then it should set some error for "body"
+    Then Gavel will set some error for "body"

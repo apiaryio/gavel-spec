@@ -1,27 +1,37 @@
-# Gavel - HTTP validator
+# Gavel - HTTP API validator
 
 ## What is Gavel? 
 
-Gavel is a guide and tooling for comparison of real HTTP traffic against given examples of:  
+> **Gavel is a tool for deciding which HTTP API call is valid and which not.** 
+
+It's useful for:
+
+- [Specification by example](http://en.wikipedia.org/wiki/Specification_by_example) and [BDD](http://en.wikipedia.org/wiki/Behavior-driven_development) for HTTP (RESTful) APIs
+- DRY test assertion library for REST API's HTTP request and response
+- Testing API documentation
+- Diff HTTP Requests and Responses
+
+## Getting started
+
+- Start with [Node.js guide and examples](https://www.relishapp.com/apiary/gavel/docs/node-js) in JavaScript
+- Read [specification and ducumentation](https://www.relishapp.com/apiary/gavel/docs)
+
+## How does it work?
+
+Gavel filters out boring noise in API communication and helps you understand important differences between real and expected HTTP messages. You can provide use for examples of:
 
 - HTTP Headers
 - Textual HTTP body
 - JSON HTTP body
+- body defined by JSON Shema
 - HTTP body defined by JSON schema
 - HTTP Status code
 - Method
 - URI
 
-## When is it useful?
-
-In general, when you are considering which API call is valid and which not.
-
-- to help consider which differences in HTTP API calls matters
-- You can use it as a DRY assertion library in tests on both frontend and backend 
-- For testing API documentation
-- When you need to diff two HTTP requests or responses
-- To achieve proper HTTP API traffic introspection
-- If you are bored ofwriting tons of assertins in your API acceptance tests
+## Known implementations
+- [Gavel.js](https://github.com/apiaryio/gavel.js) JavaScript library for Node.js [![Build Status](https://travis-ci.org/apiaryio/gavel.js.png?branch=master)](https://travis-ci.org/apiaryio/gavel.js)
+- [Apiary interactive API documentation hosting](http://apiary.io/)
 
 ## Brief behavior description
 
@@ -30,20 +40,41 @@ In general, when you are considering which API call is valid and which not.
 - JSON keys in bodies can't miss
 - Textual body must match exactly 
 
+## Platform independent documentation and specification
 
-## Known Gavel implementations
+> **Gavel is fair to everyone!**
 
-- **Gavel.js** JavaScript library [![Build Status](https://travis-ci.org/apiaryio/hit-validation.png?branch=master)](https://travis-ci.org/apiaryio/hit-validation)
+Gavel's specification lives on [Relish](https://www.relishapp.com/apiary/gavel/docs) and it's written in [Gherkin](https://github.com/cucumber/cucumber/wiki/Gherkin), language used by [Cucumber](https://github.com/cucumber/cucumber/wiki/Gherkin), popular BDD tool.
 
-- **Apiary** HTTP API traffic inspector
+[Relish](https://www.relishapp.com/) radically changed point of view on Cucumber from BDD tool to documentation-oriented acceptance testing platform for collaboration. It means, thanks to Cucumber, each example in Gavel specification can be tested against Gavel implementations, **so Gavel's behavior documentation is always up-to-date.** 
 
-## Specification and documentation
+**Examples are made on raw HTTP, in order to focus on implementation independence of this specification and behavior consistency across all implementations.** 
 
-Gavel's specification lives on [Reslish](https://www.relishapp.com/apiary/gavel/docs) and it's written in [Gherkin](https://github.com/cucumber/cucumber/wiki/Gherkin), language used by [Cucumber](https://github.com/cucumber/cucumber/wiki/Gherkin), popular [BDD](http://en.wikipedia.org/wiki/Behavior-driven_development) tool, so behavior is specified by examples. [Relish](https://www.relishapp.com/) radically changed point of view on Cucumber from BDD tool to documentation-oriented acceptance testing platform. It means, thanks to Cucumber, each example in the specification can be tested against Gavel implementation, so **Gavel's documentation is always up-to-date.** 
+## Contribution to specification
 
-**In order to focus on implementation independence of this specification, examples are provided in raw HTTP.** 
+1. Fork this repo
+2. Make change to existing features or add features  
+3. Bump version (create tag)
+4. Open pull request
 
-## Used Cucumber tags
+Use [GitHub issues](https://github.com/apiaryio/gavel/issues) for discussion. 
+
+## New language implementation (the BDD way)
+
+- Fork this repo
+- Assign implementation specific Cucumebr tag (e.g. @erlang) in this document
+- Add forked repo as cucumber feature directory in your project
+- Setup your Cucumber-like test runner to use only this tag (-t option) to filter out other implementations
+- Tag features with your language tag as you implement
+- Implement Cucumber step definitions (glue code between Cucumber steps and your code)
+- Run Cucumber and see it failing
+- Implement scenario in your code
+- Run Cucumber and see examples passing (Make cukes green)
+- Do not forget to add Cucumber features for code exapmles for your implementation
+- Add your repository to Travis-CI and add badge in this document
+- Publish your repository
+
+## Cucumber tags
 
 *Untagged features and scenarios are considered mandatory in all imlpementations*
 
@@ -55,26 +86,4 @@ Gavel's specification lives on [Reslish](https://www.relishapp.com/apiary/gavel/
 
 **@nodejs** - Implemented in Node.js, tested
 
-**@nodejs-pending** Planned to implement in Node.js, not tested
-
-## Contribution to specification
-
-- Fork this repo
-- Make change to existing features or add features  
-- Bump version (create tag)
-- Open pull request
-
-## New implementation (the BDD way)
-
-- Fork this repo
-- Assign implementation specific Cucumebr tag (e.g. @erlang) in this document 
-- Create pull request
-- Add this repo as submodule to your repository (as cucumber `feature` directory)
-- Setup your Cucumber test runner to use only this tag (-t option) to filter out other implementations
-- Implement Cucumber step definitions (glue code between Cucumber steps and your code)
-- Run Cucumber and see it failing
-- Implement scenario in your code 
-- Run Cucumber and see examples passing (Make cukes green)
-- Add your project to Travis-CI and add its badge to this document 
-- Do not forget to add Cucumber features for code exapmles for your implementation
-
+**@nodejs-pending** Planned to implement in Node.js, NOT tested

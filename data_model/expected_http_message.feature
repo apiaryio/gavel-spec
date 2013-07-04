@@ -1,3 +1,0 @@
-Feature: Expected HTTP message
-
-

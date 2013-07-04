@@ -1,2 +1,0 @@
-Feature: Expected HTTP request
-

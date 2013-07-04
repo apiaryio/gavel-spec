@@ -2,7 +2,7 @@
 Feature: Validation errors
 
   Scenario: JSON body error
-    Given expected HTTP body is defined by following "JSON example":
+    Given you define expected HTTP body by following "JSON example":
     """
     {
       "a": "b"
@@ -30,7 +30,7 @@ Feature: Validation errors
     """
   
   Scenario: Text body error 
-    Given expected HTTP body is defined by following "textual example":
+    Given you define expected HTTP body by following "textual example":
     """
     Red, green, blue...
     One, two, free, four.
@@ -57,7 +57,7 @@ Feature: Validation errors
     """
 
   Scenario: Body type mismatch error
-    Given expected HTTP body is defined by following "JSON example":
+    Given you define expected HTTP body by following "JSON example":
     """
     {
       "a": "b"
