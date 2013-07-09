@@ -1,5 +1,7 @@
 # Gavel - HTTP API validator
 
+![Gavel logo](https://raw.github.com/apiaryio/gavel/master/img/gavel.png?login=netmilk&token=73e03867f59ec1870842429ca2f7e8b9)
+
 ## What is Gavel? 
 
 > **Gavel is a tool for deciding which HTTP API call is valid and which not.** 
