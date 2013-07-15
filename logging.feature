@@ -1,10 +1,11 @@
 @draft
-Feature: Logging
-  For purpose of postprocessing performed validations and debugging
+Feature: Logging format
+  For purpose of post-processing performed validations and debugging
 
-  Scenario: Log format
+  Scenario: Gavel log format
   Scenario: Gavel spec version
   Scenario: Enable logging
-  Scenario: Set authority
-  Scenario: Set logging path
-  Scenario: Set Build ID
+  Scenario: Logging path
+  Scenario: Authority
+  Scenario: Agent
+  Scenario: Build ID

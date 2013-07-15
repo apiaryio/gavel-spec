@@ -17,7 +17,7 @@ Feature: Body - JSON exapmle
       "string": "Hello World"
     }    
     """
-  
+
   Scenario: key is missing in real payload JSON body
     When real HTTP body is following:
     """
@@ -34,7 +34,7 @@ Feature: Body - JSON exapmle
     }
     """
     Then Gavel will set some error for "body"
-  
+
   Scenario: extra key in real JSON body
     When real HTTP body is following:
     """

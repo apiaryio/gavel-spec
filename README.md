@@ -9,9 +9,11 @@
 It's useful for:
 
 - [Specification by example](http://en.wikipedia.org/wiki/Specification_by_example) and [BDD](http://en.wikipedia.org/wiki/Behavior-driven_development) for HTTP (RESTful) APIs
-- DRY test assertion library for REST API's HTTP request and response
-- Testing API documentation
 - Diff HTTP Requests and Responses
+- Testing API documentations
+- DRY test assertion engine for REST API's HTTP request and response
+
+
 
 ## Getting started
 
@@ -33,7 +35,7 @@ Gavel filters out boring noise in API communication and helps you understand imp
 
 ## Known implementations
 - [Gavel.js](https://github.com/apiaryio/gavel.js) JavaScript library for Node.js [![Build Status](https://travis-ci.org/apiaryio/gavel.js.png?branch=master)](https://travis-ci.org/apiaryio/gavel.js)
-- [Apiary interactive API documentation hosting](http://apiary.io/)
+- [Apiary interactive API documentation](http://apiary.io/)
 
 ## Brief behavior description
 

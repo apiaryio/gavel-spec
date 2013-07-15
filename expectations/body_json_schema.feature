@@ -1,4 +1,4 @@
-@nodejs @wip
+@nodejs
 Feature: Body - JSON schema
 
   Background: 
@@ -49,7 +49,7 @@ Feature: Body - JSON schema
     """
     Then Gavel will NOT set any errors for "body"
   
-  Scenario: payload body NOT validad againts schema
+  Scenario: payload body not valid againts schema
     When real HTTP body is following:
     """
     {

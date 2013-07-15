@@ -1,68 +1,30 @@
+@nodejs @wip
 Feature: Data model
-
+  
   Scenario: HTTP Request
-    When you have following example HTTP request:
+    When you have following real HTTP request:
     """
     GET /ip HTTP/1.1
     User-Agent: curl/7.24.0 (x86_64-apple-darwin12.0) libcurl/7.24.0 OpenSSL/0.9.8x zlib/1.2.5
   	Host: httpbin.org
   	Accept: */*
-    """
-    Then "HTTP Response" JSON representation will look like this:
-    """
-    {
-      "method": "GET",
-      "uri": "",
-      "headers": {
-        "User-Agent": "curl/7.24.0 (x86_64-apple-darwin12.0) libcurl/7.24.0 OpenSSL/0.9.8x zlib/1.2.5",
-        "Host": "httpbin.org",
-        "Accept": "*/*"
-      },
-      "body": "",
-      "expected": null
-    }
-    """
-
-  Scenario: HTTP Response
-    When you have following example HTTP response:
-    """
-  	HTTP/1.1 200 OK
-  	Content-Type: application/json
-  	Date: Wed, 03 Jul 2013 13:30:53 GMT
-  	Server: gunicorn/0.17.4
-  	Content-Length: 30
-  	Connection: keep-alive
-
-  	{
-  	  "origin": "94.113.241.2"
-  	}
     """
     Then "HTTP Request" JSON representation will look like this:
     """
     {
-      "status": "200",
-      "statusMessage": "OK",
+      "method": "GET",
+      "uri": "/ip",
       "headers": {
-        "Content-Type": "Content-Type: application/json",
-	   	"Date": "Wed, 03 Jul 2013 13:30:53 GMT",
-		  "Server": "gunicorn/0.17.4",
-		  "Content-Length": "30",
-		  "Connection": "keep-alive"
+        "user-agent": "curl/7.24.0 (x86_64-apple-darwin12.0) libcurl/7.24.0 OpenSSL/0.9.8x zlib/1.2.5",
+        "host": "httpbin.org",
+        "accept": "*/*"
       },
-      "body": "  {\n  \"origin\": \"94.113.241.2\"\n}",
-      "expected": null
+      "body": ""
     }
     """
-
-  Scenario: HTTP Message
-    When you have following example HTTP request:
-    """
-    GET /ip HTTP/1.1
-    User-Agent: curl/7.24.0 (x86_64-apple-darwin12.0) libcurl/7.24.0 OpenSSL/0.9.8x zlib/1.2.5
-  	Host: httpbin.org
-  	Accept: */*
-    """
-     And you have following example HTTP response:
+  
+  Scenario: HTTP Response
+    When you have following real HTTP response:
     """
   	HTTP/1.1 200 OK
   	Content-Type: application/json
@@ -72,38 +34,170 @@ Feature: Data model
   	Connection: keep-alive
 
   	{
-  	  "origin": "94.113.241.2"
-  	}
+      "origin": "94.113.241.2"
+    }
+    """
+
+    Then "HTTP Response" JSON representation will look like this:
+    """
+    {
+      "statusCode": "200",
+      "statusMessage": "OK",
+      "headers": {
+        "content-type": "application/json",
+  	   	"date": "Wed, 03 Jul 2013 13:30:53 GMT",
+  		  "server": "gunicorn/0.17.4",
+  		  "content-length": "30",
+  		  "connection": "keep-alive"
+      },
+      "body": "{\n  \"origin\": \"94.113.241.2\"\n}"
+    }
+    """
+  
+
+  Scenario: HTTP Message
+    When you have following real HTTP request:
+    """
+    GET /ip HTTP/1.1
+    User-Agent: curl/7.24.0 (x86_64-apple-darwin12.0) libcurl/7.24.0 OpenSSL/0.9.8x zlib/1.2.5
+    Host: httpbin.org
+    Accept: */*
+    """
+    
+    And you have following real HTTP response:
+    """
+    HTTP/1.1 200 OK
+    Content-Type: application/json
+    Date: Wed, 03 Jul 2013 13:30:53 GMT
+    Server: gunicorn/0.17.4
+    Content-Length: 30
+    Connection: keep-alive
+
+    {
+      "origin": "94.113.241.2"
+    }
     """
     Then "HTTP Message" JSON representation will look like this:
     """
     {
-      "request": {
+      "httpRequest": {
         "method": "GET",
-        "uri": "",
+        "uri": "/ip",
         "headers": {
-          "User-Agent": "curl/7.24.0 (x86_64-apple-darwin12.0) libcurl/7.24.0 OpenSSL/0.9.8x zlib/1.2.5",
-          "Host": "httpbin.org",
-          "Accept": "*/*"
+          "user-agent": "curl/7.24.0 (x86_64-apple-darwin12.0) libcurl/7.24.0 OpenSSL/0.9.8x zlib/1.2.5",
+          "host": "httpbin.org",
+          "accept": "*/*"
         },
-        "body": "",
-        "expected": null
+        "body": ""
       },
-      "response": {
-        "status": "200",
+      "httpResponse": {
+        "statusCode": "200",
         "statusMessage": "OK",
         "headers": {
-          "Content-Type": "Content-Type: application/json",
-      		"Date": "Wed, 03 Jul 2013 13:30:53 GMT",
-      		"Server": "gunicorn/0.17.4",
-      		"Content-Length": "30",
-      		"Connection": "keep-alive"
+          "content-type": "application/json",
+      		"date": "Wed, 03 Jul 2013 13:30:53 GMT",
+      		"server": "gunicorn/0.17.4",
+      		"content-length": "30",
+      		"connection": "keep-alive"
         },
-        "body": "  {\n  \"origin\": \"94.113.241.2\"\n}",
-        "expected": null
+        "body": "{\n  \"origin\": \"94.113.241.2\"\n}"
+      }
+    }
+    """
+
+  Scenario: Expected HTTP Response
+    When you expect HTTP status code "200"
+
+    And you expect following HTTP headers:
+    """
+    Content-Type: application/json
+    Date: Wed, 03 Jul 2013 13:30:53 GMT
+    Server: gunicorn/0.17.4
+    Content-Length: 30
+    Connection: keep-alive
+    """
+    
+    And you define expected HTTP body by following "JSON example":
+    """
+    {
+      "origin": "94.113.241.2"
+    }
+    """
+    
+    And you define expected HTTP body by following "JSON schema":
+    """
+    {
+      "type":"object",
+      "$schema": "http://json-schema.org/draft-03/schema",
+      "required":true,
+      "properties":{
+        "object": {
+          "type":"object",
+          "required":false,
+          "properties":{
+            "origin": {
+              "type":"string",
+              "required":true
+            }
+          }
+        }
+      }
+    }    
+    """
+
+    Then "Expected HTTP Response" JSON representation will look like this:
+    """
+    {
+      "statusCode": "200",
+      "headers": {
+        "content-type": "application/json",
+        "date": "Wed, 03 Jul 2013 13:30:53 GMT",
+        "server": "gunicorn/0.17.4",
+        "content-length": "30",
+        "connection": "keep-alive"
+      },
+      "body": "{\n  \"origin\": \"94.113.241.2\"\n}",
+      "bodySchema": {
+        "type": "object",
+        "$schema": "http://json-schema.org/draft-03/schema",
+        "required": true,
+        "properties": {
+          "object": {
+            "type": "object",
+            "required": false,
+            "properties": {
+              "origin": {
+                "type": "string",
+                "required": true
+              }
+            }
+          }
+        }
       }
     }
     """
 
   Scenario: Expected HTTP Request
-  Scenario: Expected HTTP Response
+    When you expect following HTTP headers:
+    """
+    User-Agent: curl/7.24.0 (x86_64-apple-darwin12.0) libcurl/7.24.0 OpenSSL/0.9.8x zlib/1.2.5
+    Host: httpbin.org
+    Accept: */*
+    """
+    
+    And you define expected HTTP body by following "textual example":
+    """
+    MyVariableOne=ValueOne&MyVariableTwo=ValueTwo
+    """
+    
+    Then "Expected HTTP Request" JSON representation will look like this:
+    """
+    {
+      "headers": {
+        "user-agent": "curl/7.24.0 (x86_64-apple-darwin12.0) libcurl/7.24.0 OpenSSL/0.9.8x zlib/1.2.5",
+        "host": "httpbin.org",
+        "accept": "*/*"
+      },
+      "body": "MyVariableOne=ValueOne&MyVariableTwo=ValueTwo"
+    }
+    """

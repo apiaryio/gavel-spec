@@ -2,9 +2,9 @@
 Feature: Status code
 
   Background:
-    Given you expect HTTP status code  "200"
+    Given you expect HTTP status code "200"
   
-  Scenario: different real reaponse status 
+  Scenario: different real response status 
     When real status code is "500"
     Then Gavel will set some error for "status code"
   

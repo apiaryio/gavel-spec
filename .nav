@@ -1,9 +1,10 @@
 - Introduction.md
-- node_js (Node.JS guide):
+- node_js (Node.JS examples):
   - installation.feature
   - request_validation.feature
   - response_validation.feature
   - message_validation.feature
+- data_model.feature (Input data model)
 - expectations (Expectation behaviour):
   - headers.feature
   - body_text_example.feature 
@@ -11,5 +12,4 @@
   - body_json_schema.feature
   - status_code.feature
 - validation_errors.feature (Validation output)
-- data_model.feature (Data model)
 - logging.feature
