@@ -1,4 +1,4 @@
-# Gavel - HTTP API validator
+# Gavel—HTTP validator
 
 ![Gavel logo](https://raw.github.com/apiaryio/gavel/master/img/gavel.png?login=netmilk&token=73e03867f59ec1870842429ca2f7e8b9)
 
@@ -12,8 +12,7 @@ It's useful for:
 - Diff HTTP Requests and Responses
 - Testing API documentations
 - DRY test assertion engine for REST API's HTTP request and response
-
-
+- API client (SDK) validations
 
 ## Getting started
 
