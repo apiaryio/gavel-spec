@@ -1,15 +1,13 @@
 - Introduction.md
-- node_js (Node.JS examples):
-  - installation.feature
-  - request_validation.feature
-  - response_validation.feature
-  - message_validation.feature
+- node_js (Node.js JavaScript guide):
+  - async_api.feature
+  - sync_api.feature
 - data_model.feature (Input data model)
-- expectations (Expectation behaviour):
+- expectations (Expectation behavior):
   - headers.feature
   - body_text_example.feature 
   - body_json_example.feature
   - body_json_schema.feature
   - status_code.feature
-- validation_errors.feature (Validation output)
+- validation_errors.feature (Validation errors)
 - logging.feature
