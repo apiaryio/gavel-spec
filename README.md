@@ -20,7 +20,7 @@ It's useful for:
 ## Usage
 
 - [JavaScript guide and examples](https://www.relishapp.com/apiary/gavel/docs/node-js)
-- [Specification and ducumentation](https://www.relishapp.com/apiary/gavel/docs)
+- [Specification and documentation](https://www.relishapp.com/apiary/gavel/docs)
 
 ## How does it work?
 
