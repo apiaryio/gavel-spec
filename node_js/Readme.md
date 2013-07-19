@@ -6,7 +6,7 @@
 
 ```
 var gavel = require('gavel');
-gavel.isValid(response,expectedResponse function(error,result){
+gavel.isValid(response, expected, function(error,result){
   console.log result;
 });
 ```
