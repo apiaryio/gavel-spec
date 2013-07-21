@@ -19,11 +19,11 @@ Feature: Sync API
       "connection": "keep-alive"
       },
       "body": "{\n  \"origin\": \"94.113.241.2\"\n}"
-    });re
+    });
     """
     And you define following "ExpectedHttpResponse" object:
     """
-    expecteResponse = new gavel.ExpectedHttpResponse({
+    expected = new gavel.ExpectedHttpResponse({
       "statusCode": "200",
       "headers": {
         "content-type": "application/json",
@@ -54,7 +54,7 @@ Feature: Sync API
     """
     And you add expected response to real response:
     """
-    response.expected = expectedresponse;
+    response.expected = expected;
     """
 
 
