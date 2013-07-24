@@ -1,6 +1,7 @@
 @draft
 Feature: Validation errors
-
+  
+  @draft
   Scenario: JSON body error
     Given you define expected HTTP body by following "JSON example":
     """
@@ -29,6 +30,7 @@ Feature: Validation errors
     }
     """
   
+  @draft
   Scenario: Text body error 
     Given you define expected HTTP body by following "textual example":
     """
@@ -55,7 +57,8 @@ Feature: Validation errors
     > Dog, cat, mouse!
     > Red, green, blue...
     """
-
+  
+  @draft
   Scenario: Body type mismatch error
     Given you define expected HTTP body by following "JSON example":
     """

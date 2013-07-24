@@ -15,7 +15,8 @@ Feature: Headers
     Content-Type: text/plain
     """
     Then Gavel will set some error for "headers"
-  
+    And Request or Response is NOT valid
+
   Scenario: extra real header in real payload
     When real HTTP headers are following:
     """
@@ -24,7 +25,8 @@ Feature: Headers
     Date: Fri, 31 Dec 1999 23:59:59 GMT    
     """
     Then Gavel will NOT set any errors for "headers"
-  
+    And Request or Response is valid
+
   Scenario: real header value is different in real payload
     When real HTTP headers are following:
     """
@@ -32,4 +34,5 @@ Feature: Headers
     Date: Sun, 23 Jun 2013 18:29:59 CET
     """
     Then Gavel will set some error for "headers"
+    And Request or Response is NOT valid
   

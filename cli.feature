@@ -1,4 +1,4 @@
-@cli @draft
+@proposal
 Feature: Command-line interface
   ## Installation
 
@@ -87,6 +87,7 @@ Feature: Command-line interface
   Then there is no output on "STERR"
 
   Scenario: Exit status
+  Given real HTTP request is not valid against expected examples
   When Gavel detects any validation errors
   Then exit status is 1
   

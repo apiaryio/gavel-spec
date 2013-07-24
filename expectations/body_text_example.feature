@@ -16,7 +16,8 @@ Feature: Body - text example
     Orange, strawberry, banana?
     """
     Then Gavel will set some error for "body"
-  
+    And Request or Response is NOT valid
+
   Scenario: extra line in real payload textual body
     When real HTTP body is following:
     """
@@ -26,7 +27,8 @@ Feature: Body - text example
     Dog, cat, mouse!
     """
     Then Gavel will set some error for "body"
-  
+    And Request or Response is NOT valid
+
   Scenario: line is changed in real textual body
     When real HTTP body is following:
     """
@@ -35,6 +37,7 @@ Feature: Body - text example
     Dog, cat, mouse!
     """
     Then Gavel will set some error for "body"
+    And Request or Response is NOT valid
 
   Scenario: text in body equals difened example
     When real HTTP body is following:
@@ -44,5 +47,5 @@ Feature: Body - text example
     Dog, cat, mouse!
     """
     Then Gavel will NOT set any errors for "body"
-
+    And Request or Response is valid
 

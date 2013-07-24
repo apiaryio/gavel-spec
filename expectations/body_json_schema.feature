@@ -48,7 +48,7 @@ Feature: Body - JSON schema
     }
     """
     Then Gavel will NOT set any errors for "body"
-  
+    And Request or Response is valid
   Scenario: payload body not valid againts schema
     When real HTTP body is following:
     """
@@ -61,3 +61,5 @@ Feature: Body - JSON schema
     }
     """
     Then Gavel will set some error for "body"
+    And Request or Response is NOT valid
+    

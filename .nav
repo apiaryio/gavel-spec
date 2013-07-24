@@ -1,5 +1,5 @@
 - cli.feature (Command-line interface)
-- node_js (Node.js library guide):
+- node_js (Node.js library examples):
   - response_async_api.feature
   - response_sync_api.feature
   - request_async_api.feature
