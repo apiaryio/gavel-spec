@@ -35,8 +35,7 @@ Feature: Request Async API
     """
     var validationResult = "booboo"; 
     """
-  
-  @wip 
+
   Scenario: isValid
     When you call:
     """
@@ -49,7 +48,7 @@ Feature: Request Async API
     true
     """
   
-  @wip
+
   Scenario: isValidatable
     When you call:
     """
