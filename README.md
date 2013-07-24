@@ -20,28 +20,27 @@ It's useful for:
 ## Usage
 
 ```
-$ curl -o /dev/null -s --trace - http://httpbin.org/ip | \
-  gavel --parse-curl-trace > expected_message
-$ curl -o /dev/null -s --trace - http://httpbin.org/ip | \
-  gavel --parse-curl-trace | gavel expected_message
+$ curl --trace - http://httpbin.org/ip | curl-trace-parser  > expected_message
+$ curl --trace - http://httpbin.org/ip | curl-trace-parser | gavel expected_message
 $ echo $?
 0
 ```
 
 - [JavaScript guide and examples](https://www.relishapp.com/apiary/gavel/docs/node-js)
 - [Specification and documentation](https://www.relishapp.com/apiary/gavel/docs)
+- [Curl trace parser used in example](https://github.com/apiaryio/curl-trace-parser)
 
 ## How does it work?
 
 Gavel` filters out boring noise in API communication and helps you understand important differences between real and expected [HTTP messages][message] (HTTP [request][request] and [response][response]). You can use Gavel with examples for:
 
-- [HTTP Headers](https://www.relishapp.com/apiary/gavel/docs/expectations/headers)
-- [Textual HTTP body](https://www.relishapp.com/apiary/gavel/docs/expectations/body-text-example)
-- [JSON HTTP body](https://www.relishapp.com/apiary/gavel/docs/expectations/body-json-exapmle)
-- [HTTP body defined by JSON Shema](https://www.relishapp.com/apiary/gavel/docs/expectations/body-json-schema)
-- [Status code](https://www.relishapp.com/apiary/gavel/docs/expectations/status-code)
-- [Method](https://www.relishapp.com/apiary/gavel/docs/expectations/request-method)
-- [URI](https://www.relishapp.com/apiary/gavel/docs/expectations/request-uri)
+- [x] [HTTP Headers](https://www.relishapp.com/apiary/gavel/docs/expectations/headers)
+- [x] [Textual HTTP body](https://www.relishapp.com/apiary/gavel/docs/expectations/body-text-example)
+- [x] [JSON HTTP body](https://www.relishapp.com/apiary/gavel/docs/expectations/body-json-exapmle)
+- [x] [HTTP body defined by JSON Shema](https://www.relishapp.com/apiary/gavel/docs/expectations/body-json-schema)
+- [ ] [Status code](https://www.relishapp.com/apiary/gavel/docs/expectations/status-code)
+- [ ] [Method](https://www.relishapp.com/apiary/gavel/docs/expectations/request-method)
+- [ ] [URI](https://www.relishapp.com/apiary/gavel/docs/expectations/request-uri)
 
 [message]: https://www.relishapp.com/apiary/gavel/docs/data-model#http-message
 [request]: https://www.relishapp.com/apiary/gavel/docs/data-model#http-request
