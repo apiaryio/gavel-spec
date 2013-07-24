@@ -1,4 +1,4 @@
-@draft
+@proposal
 Feature: Request URI
   Background:
     Given you expect request URI "/ip"

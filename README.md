@@ -108,7 +108,8 @@ Use [GitHub issues](https://github.com/apiaryio/gavel/issues) for discussion.
 
 ### General tags
 
-**@draft** - proposal
+**@draft** - feature sketch, aggregation thoughts
+**@proposalt** - proposal for stabilization
 
 ### Implementation specific tags
 
