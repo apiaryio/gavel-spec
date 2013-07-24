@@ -1,4 +1,4 @@
-@nodejs @wip
+@nodejs
 Feature: Data model
   
   Scenario: HTTP Request

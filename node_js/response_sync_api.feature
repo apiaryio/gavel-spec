@@ -1,5 +1,5 @@
-@draft
-Feature: Sync API
+@nodejs 
+Feature: Response Sync API
   
   Background:
     Given you call:
@@ -33,30 +33,12 @@ Feature: Sync API
         "connection": "keep-alive"
       },
       "body": "{\n  \"origin\": \"94.113.241.2\"\n}",
-      "bodySchema": {
-        "type": "object",
-        "$schema": "http://json-schema.org/draft-03/schema",
-        "required": true,
-        "properties": {
-          "object": {
-            "type": "object",
-            "required": false,
-            "properties": {
-              "origin": {
-                "type": "string",
-                "required": true
-              }
-            }
-          }
-        }
-      }
     });
     """
-    And you add expected response to real response:
+    And you add expected "response" to real "response":
     """
-    response.expected = expected;
+    response['expected'] = expected;
     """
-
 
   Scenario: isValid
     When you call:
@@ -67,13 +49,24 @@ Feature: Sync API
     """
     true
     """
+  
+  Scenario: isValidatable
+    When you call:
+    """
+    response.isValidatable();
+    """
+    Then it will return:
+    """
+    true
+    """
+
   @draft
   Scenario: validate
     When you call:
     """
     response.validate();
     """
-    Then "validationResult" variable will contain: 
+    Then it will return:
     """
     { 
       headers: { 
@@ -82,7 +75,7 @@ Feature: Sync API
         now: '1374133598556',
         dataError: null 
       },
-      body: { 
+      body: { s
         length: 0,
         amandaErrors: {},
         now: '1374133598557',
@@ -90,16 +83,4 @@ Feature: Sync API
       },
       statusCode: true
     }
-    """
-
-  Scenario: isValidatable
-    When you call:
-    """
-    isValidatable(response, function(error,result){
-      validationResult = result
-    })
-    """
-    Then "validationResult" variable will contain: 
-    """
-    true
     """

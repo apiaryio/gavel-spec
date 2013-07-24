@@ -1,7 +1,9 @@
 - cli.feature (Command-line interface)
 - node_js (Node.js library guide):
-  - async_api.feature
-  - sync_api.feature
+  - response_async_api.feature
+  - response_sync_api.feature
+  - request_async_api.feature
+  - request_sync_api.feature
 - data_model.feature (Data model)
 - expectations (Expectation behavior):
   - headers.feature

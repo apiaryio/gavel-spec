@@ -1,5 +1,6 @@
-@draft
-Feature: Async API
+@nodejs 
+
+Feature: Response Async API
   
   Background:
     Given you call:
@@ -21,7 +22,7 @@ Feature: Async API
       "body": "{\n  \"origin\": \"94.113.241.2\"\n}"
     };
     """
-    And you define following "expected" vairable:
+    And you define following "expected" variable:
     """
     expected = {
       "statusCode": "200",
@@ -32,35 +33,18 @@ Feature: Async API
         "content-length": "30",
         "connection": "keep-alive"
       },
-      "body": "{\n  \"origin\": \"94.113.241.2\"\n}",
-      "bodySchema": {
-        "type": "object",
-        "$schema": "http://json-schema.org/draft-03/schema",
-        "required": true,
-        "properties": {
-          "object": {
-            "type": "object",
-            "required": false,
-            "properties": {
-              "origin": {
-                "type": "string",
-                "required": true
-              }
-            }
-          }
-        }
-      }
+      "body": "{\n  \"origin\": \"94.113.241.2\"\n}"
     };
     """
     And prepare result variable:
     """
-    var validationResult; 
+    var validationResult = "booboo"; 
     """
-
+  
   Scenario: isValid
     When you call:
     """
-    gavel.isValid(response, expected, function(error,result){
+    gavel.isValid(response, expected, 'response', function(error,result){
       validationResult = result;
     });
     """
@@ -68,7 +52,20 @@ Feature: Async API
     """
     true
     """
-
+  
+  Scenario: isValidatable
+    When you call:
+    """
+    gavel.isValidatable(response, expected, 'response', function(error,result){
+      validationResult = result;
+    });
+    """
+    Then "validationResult" variable will contain: 
+    """
+    true
+    """
+  
+  @draft
   Scenario: validate
     When you call:
     """
@@ -93,16 +90,4 @@ Feature: Async API
       },
       statusCode: true
     }
-    """
-
-  Scenario: isValidatable
-    When you call:
-    """
-    gavel.isValidatable(response, expected, function(error,result){
-      validationResult = result;
-    });
-    """
-    Then "validationResult" variable will contain: 
-    """
-    true
-    """
+    """  
