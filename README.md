@@ -20,16 +20,15 @@ It's useful for:
 ## Usage
 
 ```
-$ curl -o /dev/null -s --trace - http://httpbin.org/ip | \
-  gavel --parse-curl-trace > expected_message
-$ curl -o /dev/null -s --trace - http://httpbin.org/ip | \
-  gavel --parse-curl-trace | gavel expected_message
+$ curl --trace - http://httpbin.org/ip | curl-trace-parser  > expected_message
+$ curl --trace - http://httpbin.org/ip | curl-trace-parser | gavel expected_message
 $ echo $?
 0
 ```
 
 - [JavaScript guide and examples](https://www.relishapp.com/apiary/gavel/docs/node-js)
 - [Specification and documentation](https://www.relishapp.com/apiary/gavel/docs)
+- [Curl trace parser used in example](https://github.com/apiaryio/curl-trace-parser)
 
 ## How does it work?
 
