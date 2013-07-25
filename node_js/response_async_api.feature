@@ -41,6 +41,7 @@ Feature: Response Async API
     var validationResult = "booboo"; 
     """
   
+  @stable
   Scenario: isValid
     When you call:
     """
@@ -53,6 +54,7 @@ Feature: Response Async API
     true
     """
   
+  @stable
   Scenario: isValidatable
     When you call:
     """

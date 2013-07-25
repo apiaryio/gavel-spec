@@ -8,7 +8,8 @@ Feature: Headers
     Content-Type: text/plain
     Date: Fri, 31 Dec 1999 23:59:59 GMT
     """
-
+  
+  @stable
   Scenario: Header is missing in real payload
     When real HTTP headers are following:
     """
@@ -17,6 +18,7 @@ Feature: Headers
     Then Gavel will set some error for "headers"
     And Request or Response is NOT valid
 
+  @stable
   Scenario: Extra real header in real payload
     When real HTTP headers are following:
     """
@@ -26,7 +28,8 @@ Feature: Headers
     """
     Then Gavel will NOT set any errors for "headers"
     And Request or Response is valid
-  
+
+  @proposal
   Scenario: Date header value is different in real payload
     When real HTTP headers are following:
     """
@@ -37,6 +40,7 @@ Feature: Headers
     Then Request or Response is valid
     And Gavel will NOT set any errors for "headers"
   
+  @stable
   Scenario: Any other header value is different in real payload
     When real HTTP headers are following:
     """

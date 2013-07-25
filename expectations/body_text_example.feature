@@ -1,4 +1,4 @@
-@nodejs
+@nodejs @stable
 Feature: Body - text example
   
   Background:

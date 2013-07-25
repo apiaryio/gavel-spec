@@ -34,7 +34,8 @@ Feature: request Sync API
     """
     request['expected'] = expected;
     """
-
+  
+  @stable
   Scenario: isValid
     When you call:
     """
@@ -45,6 +46,7 @@ Feature: request Sync API
     true
     """
   
+  @stables
   Scenario: isValidatable
     When you call:
     """

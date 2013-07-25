@@ -109,11 +109,21 @@ Use [GitHub issues](https://github.com/apiaryio/gavel/issues) for discussion.
 
 ### General tags
 
-**@draft** - feature sketch, aggregation thoughts
-**@proposalt** - proposal for stabilization
+**@stable** - Stable API or behavior - MUST be implemented
+
+**@proposal** - proposal for stabilization - SHOULD be implemented
+
+**@draft** - feature sketch, thoughts aggregation - MAY be implmemented
+
+See [RFC Requirement levels](http://www.ietf.org/rfc/rfc2119.txt) 
 
 ### Implementation specific tags
 
 **@nodejs** - Implemented in Node.js, tested
 
 **@nodejs-pending** Planned to implement in Node.js, NOT tested
+
+## Licence
+
+Gavel is released under [MIT licence](https://github.com/apiaryio/gavel/blob/master/LICENSE).
+

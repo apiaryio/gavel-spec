@@ -1,4 +1,4 @@
-@nodejs
+@nodejs @stable
 Feature: Data model
   
   Scenario: HTTP Request

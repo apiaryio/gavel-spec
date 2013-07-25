@@ -39,7 +39,8 @@ Feature: Response Sync API
     """
     response['expected'] = expected;
     """
-
+  
+  @stable
   Scenario: isValid
     When you call:
     """
@@ -50,6 +51,7 @@ Feature: Response Sync API
     true
     """
   
+  @stable
   Scenario: isValidatable
     When you call:
     """
