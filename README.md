@@ -20,8 +20,9 @@ It's useful for:
 ## Usage
 
 ```
-$ curl --trace - http://httpbin.org/ip | curl-trace-parser  > expected_message
-$ curl --trace - http://httpbin.org/ip | curl-trace-parser | gavel expected_message
+$ curl --trace - http://httpbin.org/ip | curl-trace-parser  > expected
+$ curl --trace - http://httpbin.org/ip | curl-trace-parser  > real
+$ cat real | gavel expected_message
 $ echo $?
 0
 ```

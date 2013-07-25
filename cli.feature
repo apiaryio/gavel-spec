@@ -1,6 +1,9 @@
 @nodejs @cli @wip
 Feature: Command-line interface
   
+  Installation: `npm install -g gavel`
+  
+
   Background:
     Given you record expected raw HTTP messages:
     """
