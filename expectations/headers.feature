@@ -9,7 +9,7 @@ Feature: Headers
     Date: Fri, 31 Dec 1999 23:59:59 GMT
     """
 
-  Scenario: header is missing in real payload
+  Scenario: Header is missing in real payload
     When real HTTP headers are following:
     """
     Content-Type: text/plain
@@ -17,7 +17,7 @@ Feature: Headers
     Then Gavel will set some error for "headers"
     And Request or Response is NOT valid
 
-  Scenario: extra real header in real payload
+  Scenario: Extra real header in real payload
     When real HTTP headers are following:
     """
     Content-Type: text/plain
@@ -37,7 +37,7 @@ Feature: Headers
     Then Request or Response is valid
     And Gavel will NOT set any errors for "headers"
   
-  Scenario: any other header value is different in real payload
+  Scenario: Any other header value is different in real payload
     When real HTTP headers are following:
     """
     Content-Type: application/json

@@ -1,4 +1,4 @@
-@nodejs @cli @wip
+@nodejs @cli
 Feature: Command-line interface
   
   Installation: `npm install -g gavel`

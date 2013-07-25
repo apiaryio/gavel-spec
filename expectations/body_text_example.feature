@@ -9,7 +9,7 @@ Feature: Body - text example
     Dog, cat, mouse!
     """
     
-  Scenario: line is missing in real payload body
+  Scenario: Line is missing in real payload body
     When real HTTP body is following:
     """
     One, two, free, four.
@@ -18,7 +18,7 @@ Feature: Body - text example
     Then Gavel will set some error for "body"
     And Request or Response is NOT valid
 
-  Scenario: extra line in real payload textual body
+  Scenario: Extra line in real payload textual body
     When real HTTP body is following:
     """
     Red, green, blue...
@@ -29,7 +29,7 @@ Feature: Body - text example
     Then Gavel will set some error for "body"
     And Request or Response is NOT valid
 
-  Scenario: line is changed in real textual body
+  Scenario: Line is changed in real textual body
     When real HTTP body is following:
     """
     Red, green, blue...
@@ -39,7 +39,7 @@ Feature: Body - text example
     Then Gavel will set some error for "body"
     And Request or Response is NOT valid
 
-  Scenario: text in body equals difened example
+  Scenario: Text in body equals difened example
     When real HTTP body is following:
     """
     One, two, free, four.

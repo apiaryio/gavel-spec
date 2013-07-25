@@ -18,7 +18,7 @@ Feature: Body - JSON exapmle
     }    
     """
 
-  Scenario: key is missing in real payload JSON body
+  Scenario: Key is missing in real payload JSON body
     When real HTTP body is following:
     """
     {
@@ -36,7 +36,7 @@ Feature: Body - JSON exapmle
     Then Gavel will set some error for "body"
     And Request or Response is NOT valid
 
-  Scenario: extra key in real JSON body
+  Scenario: Extra key in real JSON body
     When real HTTP body is following:
     """
     {
@@ -56,7 +56,7 @@ Feature: Body - JSON exapmle
     Then Gavel will NOT set any errors for "body"
     And Request or Response is valid
 
-  Scenario: different values in real JSON body
+  Scenario: Different values in real JSON body
     When real HTTP body is following:
     """
     {
@@ -77,7 +77,7 @@ Feature: Body - JSON exapmle
     Then Gavel will set some error for "body"
     And Request or Response is NOT valid
 
-  Scenario: array member is missing in real JSON body
+  Scenario: Array member is missing in real JSON body
     When real HTTP body is following:
     """
     {
@@ -95,7 +95,7 @@ Feature: Body - JSON exapmle
     Then Gavel will set some error for "body"
     And Request or Response is NOT valid
 
-  Scenario: extra array member in real JSON body
+  Scenario: Extra array member in real JSON body
     When real HTTP body is following:
     """
     {
