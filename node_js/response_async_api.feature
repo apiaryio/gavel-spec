@@ -7,7 +7,7 @@ Feature: Response Async API
     """
     var gavel = require('gavel');
     """
-    And you define following "response" variable:
+    And you define the following "response" variable:
     """
     response = {
       "statusCode": "200",
@@ -22,7 +22,7 @@ Feature: Response Async API
       "body": "{\n  \"origin\": \"94.113.241.2\"\n}"
     };
     """
-    And you define following "expected" variable:
+    And you define the following "expected" variable:
     """
     expected = {
       "statusCode": "200",
