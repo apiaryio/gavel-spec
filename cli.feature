@@ -5,7 +5,7 @@ Feature: Command-line interface
   
 
   Background:
-    Given you record expected raw HTTP messages:
+    Given you record expected raw HTTP message:
     """
     curl -s --trace - http://httpbin.org/ip | curl-trace-parser > expected 
     """
@@ -15,23 +15,23 @@ Feature: Command-line interface
     """ 
   
   @stable
-  Scenario: Read and validate real raw HTTP messages from STDIN
+  Scenario: Read and validate real raw HTTP message from STDIN
 
-    When you validate messages using following Gavel command:
+    When you validate the message using the following Gavel command:
     """
     cat real | gavel expected
     """
     Then exit status is 0
   
   @stable
-  Scenario: Exit status for not valid messages
+  Scenario: Exit status for invalid message
 
-    When there is some header missing in real messages:
+    When a header is missing in real message:
     """
     cat real | grep -v 'Access-Control-Allow-Origin' > real_without_cors
     """
 
-    And you validate messages using following Gavel command:
+    And you validate the message using the following Gavel command:
     """
     cat real_without_cors | curl-trace-parser | gavel expected
     """
