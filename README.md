@@ -59,6 +59,7 @@ See detailed [expectation behavior specification](https://www.relishapp.com/apia
 ## Known implementations
 
 - [JavaScript][gavel.js] [![Gavel.js Travis-CI badge](https://travis-ci.org/apiaryio/gavel.js.png?branch=master)](https://travis-ci.org/apiaryio/gavel.js)
+- [Apiary](http://apiary.io/) interactive documentation
 
 
 [gavel.js]: https://github.com/apiaryio/gavel.js
