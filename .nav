@@ -4,12 +4,12 @@
   - response_sync_api.feature
   - request_async_api.feature
   - request_sync_api.feature
-- data_model.feature (Data model)
 - expectations (Expectation behavior):
   - headers.feature
   - body_text_example.feature 
   - body_json_example.feature
   - body_json_schema.feature
   - status_code.feature
+- data_model.feature (Data model)
 - validation_errors.feature (Validation errors)
 - logging.feature

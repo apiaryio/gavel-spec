@@ -1,4 +1,4 @@
-@nodejs @cli 
+@nodejs @cli @wip
 Feature: Command-line interface
   
   Background:
