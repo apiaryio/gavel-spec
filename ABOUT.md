@@ -4,7 +4,7 @@
 
 Gavel specification and documentation is written in [Gherkin][gherkin], laguage used by [Cucumber][cucumber], popular BDD tool and lives [here on Relish][gavelrelish].
 
-[Relish][relish] radically changed point of view on Cucumber from BDD tool to **documentation-oriented acceptance testing platform** for collaboration. Examples are made on raw HTTP, in order to focus on implementation independence. It means, thanks to Cucumber, each example in Gavel specification is tested against each Gavel implementation in continous integration. **So Gavel's behavior documentation can never be outdated and Gavel's behavior is consistent across all languages.**
+[Relish][relish] radically changed point of view on Cucumber from BDD tool to **documentation-oriented acceptance testing platform** for collaboration. Examples are made in raw HTTP, in order to focus on implementation independence. It means, thanks to Cucumber, each example in Gavel specification is tested against each Gavel implementation in continous integration. **So Gavel's behavior documentation can never be outdated and Gavel's behavior is consistent across all languages.**
 
 [gherkin]: https://github.com/cucumber/gherkin
 [cucumber]: https://github.com/cucumber/cucumber
@@ -22,8 +22,8 @@ Gavel specification and documentation is written in [Gherkin][gherkin], laguage 
 ## Contribution to this specification
 
 1. Fork this repo
-2. Make change to existing features or add features  
-3. Bump version (create tag)
+2. Make changes
+3. Bump version (create a tag)
 4. Open pull request
 
 Use [GitHub issues](https://github.com/apiaryio/gavel/issues) for discussion. 
@@ -31,7 +31,7 @@ Use [GitHub issues](https://github.com/apiaryio/gavel/issues) for discussion.
 ## New language implementation (the BDD way)
 
 - Fork this repo
-- Assign implementation specific Cucumebr tag (e.g. @erlang) in this document
+- Assign implementation specific Cucumber tag (e.g. @erlang) in this document
 - Add forked repo as [git submodule][git submodule] to cucumber feature directory in your project
 - Setup your Cucumber-like test runner to use only this tag (-t option) to filter out other implementations
 - Tag features with your language tag as you implement
