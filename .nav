@@ -1,4 +1,3 @@
-- ABOUT.md (Platform independence)
 - cli.feature (Command-line interface)
 - node_js (Node.js library examples):
   - response_async_api.feature
@@ -14,3 +13,4 @@
 - data_model.feature (Data model)
 - validation_errors.feature (Validation errors)
 - logging.feature
+- ABOUT.md (Platform independence and cotribution)

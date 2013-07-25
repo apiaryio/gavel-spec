@@ -11,6 +11,14 @@ Gavel specification and documentation is written in [Gherkin][gherkin], laguage 
 [gavelrelish]: https://www.relishapp.com/apiary/gavel/docs
 [relish]: https://www.relishapp.com/ 
 
+## Issues
+
+[This documentation is open source][github], and a work in progress. If you find it incomplete or confusing, please [submit an issue][issues], or, better yet, a [pull request][pullrequest].
+
+[github]: https://github.com/apiaryio/gavel
+[issues]: https://github.com/apiaryio/gavel/issues
+[pullrequest]: https://github.com/apiaryio/gavel/pulls
+
 ## Contribution to this specification
 
 1. Fork this repo
