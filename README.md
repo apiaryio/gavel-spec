@@ -22,7 +22,7 @@ It's useful for:
 ```
 $ curl --trace - http://httpbin.org/ip | curl-trace-parser  > expected
 $ curl --trace - http://httpbin.org/ip | curl-trace-parser  > real
-$ cat real | gavel expected_message
+$ cat real | gavel expected
 $ echo $?
 0
 ```
@@ -49,12 +49,12 @@ Gavel` filters out boring noise in API communication and helps you understand im
 
 ## Brief behavior description
 
-- Headers can't miss
-- Header values metters
-- JSON keys in bodies can't miss
+- Headers cannot be missing
+- Header values matter
+- JSON keys in bodies cannot be missing
 - Textual body must match exactly
 
-See detailed [expectation behavior specification](https://www.relishapp.com/apiary/gavel/docs/expectations)
+See detailed [expectation behavior specification](https://www.relishapp.com/apiary/gavel/docs/expectations).
 
 ## Known implementations
 
