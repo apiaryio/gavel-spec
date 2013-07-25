@@ -2,7 +2,7 @@
 Feature: Body - JSON exapmle
 
   Background: 
-    Given you define expected HTTP body by following "JSON example":
+    Given you define expected HTTP body using the following "JSON example":
     """
     {
       "object": {
