@@ -3,7 +3,7 @@ Feature: Headers
   http://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2
 
   Background:
-    Given you expect following HTTP headers:
+    Given you expect the following HTTP headers:
     """
     Content-Type: text/plain
     Date: Fri, 31 Dec 1999 23:59:59 GMT

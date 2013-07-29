@@ -2,11 +2,11 @@
 Feature: Data model
   
   Scenario: HTTP Request
-    When you have following real HTTP request:
+    When you have the following real HTTP request:
     """
     GET /ip HTTP/1.1
     User-Agent: curl/7.24.0 (x86_64-apple-darwin12.0) libcurl/7.24.0 OpenSSL/0.9.8x zlib/1.2.5
-  	Host: httpbin.org
+    Host: httpbin.org
   	Accept: */*
     """
     Then "HTTP Request" JSON representation will look like this:
@@ -24,7 +24,7 @@ Feature: Data model
     """
   
   Scenario: HTTP Response
-    When you have following real HTTP response:
+    When you have the following real HTTP response:
     """
   	HTTP/1.1 200 OK
   	Content-Type: application/json
@@ -56,7 +56,7 @@ Feature: Data model
   
 
   Scenario: HTTP Message
-    When you have following real HTTP request:
+    When you have the following real HTTP request:
     """
     GET /ip HTTP/1.1
     User-Agent: curl/7.24.0 (x86_64-apple-darwin12.0) libcurl/7.24.0 OpenSSL/0.9.8x zlib/1.2.5
@@ -64,7 +64,7 @@ Feature: Data model
     Accept: */*
     """
     
-    And you have following real HTTP response:
+    And you have the following real HTTP response:
     """
     HTTP/1.1 200 OK
     Content-Type: application/json
@@ -108,7 +108,7 @@ Feature: Data model
   Scenario: Expected HTTP Response
     When you expect HTTP status code "200"
 
-    And you expect following HTTP headers:
+    And you expect the following HTTP headers:
     """
     Content-Type: application/json
     Date: Wed, 03 Jul 2013 13:30:53 GMT
@@ -117,14 +117,14 @@ Feature: Data model
     Connection: keep-alive
     """
     
-    And you define expected HTTP body by following "JSON example":
+    And you define expected HTTP body using the following "JSON example":
     """
     {
       "origin": "94.113.241.2"
     }
     """
     
-    And you define expected HTTP body by following "JSON schema":
+    And you define expected HTTP body using the following "JSON schema":
     """
     {
       "type":"object",
@@ -178,14 +178,14 @@ Feature: Data model
     """
 
   Scenario: Expected HTTP Request
-    When you expect following HTTP headers:
+    When you expect the following HTTP headers:
     """
     User-Agent: curl/7.24.0 (x86_64-apple-darwin12.0) libcurl/7.24.0 OpenSSL/0.9.8x zlib/1.2.5
     Host: httpbin.org
     Accept: */*
     """
     
-    And you define expected HTTP body by following "textual example":
+    And you define expected HTTP body using the following "textual example":
     """
     MyVariableOne=ValueOne&MyVariableTwo=ValueTwo
     """

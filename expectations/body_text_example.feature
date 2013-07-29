@@ -2,9 +2,9 @@
 Feature: Body - text example
   
   Background:
-    Given you define expected HTTP body by following "textual example": 
+    Given you define expected HTTP body using the following "textual example": 
     """
-    One, two, free, four.
+    One, two, three, four.
     Orange, strawberry, banana?
     Dog, cat, mouse!
     """
@@ -12,7 +12,7 @@ Feature: Body - text example
   Scenario: Line is missing in real payload body
     When real HTTP body is following:
     """
-    One, two, free, four.
+    One, two, three, four.
     Orange, strawberry, banana?
     """
     Then Gavel will set some error for "body"
@@ -22,7 +22,7 @@ Feature: Body - text example
     When real HTTP body is following:
     """
     Red, green, blue...
-    One, two, free, four.
+    One, two, three, four.
     Orange, strawberry, banana?
     Dog, cat, mouse!
     """
@@ -39,10 +39,10 @@ Feature: Body - text example
     Then Gavel will set some error for "body"
     And Request or Response is NOT valid
 
-  Scenario: Text in body equals difened example
+  Scenario: Text in body equals defined example
     When real HTTP body is following:
     """
-    One, two, free, four.
+    One, two, three, four.
     Orange, strawberry, banana?
     Dog, cat, mouse!
     """
