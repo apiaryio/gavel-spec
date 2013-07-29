@@ -2,7 +2,7 @@
 Feature: Body - JSON schema
 
   Background: 
-    Given you define expected HTTP body by following "JSON schema":
+    Given you define expected HTTP body using the following "JSON schema":
     """
     {
       "type":"object",

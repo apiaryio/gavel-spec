@@ -117,14 +117,14 @@ Feature: Data model
     Connection: keep-alive
     """
     
-    And you define expected HTTP body by following "JSON example":
+    And you define expected HTTP body using the following "JSON example":
     """
     {
       "origin": "94.113.241.2"
     }
     """
     
-    And you define expected HTTP body by following "JSON schema":
+    And you define expected HTTP body using the following "JSON schema":
     """
     {
       "type":"object",
@@ -185,7 +185,7 @@ Feature: Data model
     Accept: */*
     """
     
-    And you define expected HTTP body by following "textual example":
+    And you define expected HTTP body using the following "textual example":
     """
     MyVariableOne=ValueOne&MyVariableTwo=ValueTwo
     """

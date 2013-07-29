@@ -1,5 +1,5 @@
 @nodejs @stable
-Feature: Body - JSON exapmle
+Feature: Body - JSON example
 
   Background: 
     Given you define expected HTTP body using the following "JSON example":
