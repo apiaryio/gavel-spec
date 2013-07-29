@@ -7,7 +7,7 @@ Feature: Request Async API
     """
     var gavel = require('gavel');
     """
-    And you define following "request" variable:
+    And you define the following "request" variable:
     """
     request = {
       "method": "GET",
@@ -20,7 +20,7 @@ Feature: Request Async API
       "body": ""
     };
     """
-    And you define following "expected" variable:
+    And you define the following "expected" variable:
     """
     expected = {
       "headers": {

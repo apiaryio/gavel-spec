@@ -1,10 +1,10 @@
 @draft
 Feature: Logging and reporting
-  For purpose of post-processing performed validations and debugging
+  For purposes of debugging and post-processing the performed validations
 
   @draft
   Scenario: Gavel log format
-  Will describe how gavel log each validation 
+  Will describe how gavel logs each validation 
   
   @draft
   Scenario: Gavel spec version
