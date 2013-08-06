@@ -4,13 +4,15 @@
   - response_sync_api.feature
   - request_async_api.feature
   - request_sync_api.feature
-- expectations (Expectation behavior):
+- expectations (General behavior):
   - headers.feature
   - body_text_example.feature 
   - body_json_example.feature
   - body_json_schema.feature
   - status_code.feature
+  - uri.feature
+  - method.feature
+- Data validators.feature (Validators)
 - data_model.feature (Data model)
-- validation_errors.feature (Validation errors)
 - logging.feature
 - ABOUT.md (Platform independence and cotribution)
