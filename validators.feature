@@ -7,19 +7,19 @@ Feature: Data validators and output format
 
     **realType**  - required - Media Type of real data
     **expectedType** - optional - Media Type of expected (example) data used for validation
-    **validator**  - required - Validator used for validation
-    **result** - required -  Raw output data from the validator
+    **validator**  - optional - Validator used for validation
+    **results** - required -  Validation results
     **rawData** - optional - raw output from the validator for later evaluation
     
     When you perform a failing validation on any validatable entity
-    Then the validator error looks like the following JSON:
+    Then the validator output looks like the following JSON:
     """
     {
       "realType": "application/json",
-      "expectedType": 'application/json'
+      "expectedType": "application/json",
       "validator": "jsonDiff",
-      "rawData": [ { "op": "add", "path\": "/missingKeyInRealData", "value": "23" }],
-      "result": [
+      "rawData": [ { "op": "add", "path": "/missingKeyInRealData", "value": "23" }],
+      "results": [
         {
           "pointer": "/missingKeyInRealData",
           "message": "Key is missing", 
@@ -28,8 +28,65 @@ Feature: Data validators and output format
       ]
     }
     """
-    And each result entry under 'result' key must contain 'message' key
-    And each result entry under 'result' key must contain 'severity' key
+    And the validator output is valid against 'GavelValidatorOutput' model JSON schema:
+    """
+    {
+        "type": "object",
+        "$schema": "http://json-schema.org/draft-03/schema",
+        "id": "#",
+        "required": true,
+        "properties": {
+            "realType": {
+                "type": "string",
+                "required": true,
+                "default": "application/json"
+            },
+            "expectedType": {
+                "type": "string",
+                "default": "application/json"
+            },
+            "validator": {
+                "type": "string",
+                "default": "jsonDIff"
+            },
+            "rawData": {
+                "default": [
+                    {
+                        "op": "add",
+                        "path": "/missingKeyInRealData",
+                        "value": "23"
+                    }
+                ]
+            },
+            "results": {
+                "default": {
+                    "pointer": "/missingKeyInRealData",
+                    "message": "Key is missing",
+                    "severity": "error"
+                },
+                "required": true,
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "message": {
+                            "type": "string",
+                            "required": true,
+                            "default": "No validator found for real data type."
+                        },
+                        "severity": {
+                            "type": "string",
+                            "required": true,
+                            "default": "errors"
+                        }
+                    }
+                }
+            }
+        }
+    }
+    """
+    And each result entry under 'results' key must contain 'message' key
+    And each result entry under 'results' key must contain 'severity' key
     And validated entity is considered invalid if there is any result message with 'error' severity
     And the output JSON contains key 'validator' with one of the following values:
     | jsonSchema      |
@@ -66,7 +123,7 @@ Feature: Data validators and output format
     +woman
       who
     """
-    And validation output 'result' looks like:
+    And validation output 'results' looks like:
     """
     [
       { "message": "Texts does not match.", "severity": "error"}
@@ -74,8 +131,11 @@ Feature: Data validators and output format
     """
 
  Scenario: HTTP Headers JSON validator 
-    **HTTP Headers JSON validator** is used for validation of [HTTP headers][] represented as [JSON][] data againts expected example in the same JSON representation (pseudo media type application/vnd.apiary.http-headers+json). Output data is an array of error objects with each HTTP headers identified by the down-cased header [field name].
+    **HTTP Headers JSON validator** is used for validation of [HTTP headers][] represented as [JSON][] data [1] againts expected example in the same JSON representation . Output data is an array of error objects with each HTTP headers identified by the down-cased header [field name].
     
+
+    [1] pseudo media type *application/vnd.apiary.http-headers+json*s
+
     [JSON]: http://tools.ietf.org/html/rfc4627
     [HTTP headers]: http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html
     [field name]: http://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2
@@ -98,7 +158,7 @@ Feature: Data validators and output format
     When you perform validation on the entity
 
     Then validator 'headersJsonDiff' is used for validation
-    And validation output 'result' looks like:
+    And validation output 'results' looks like:
     """
     [
       {
@@ -155,7 +215,7 @@ Feature: Data validators and output format
     When you perform validation on the entity
 
     Then validator 'jsonSchema' is used for validation
-    And validation output 'result' looks like:
+    And validation output 'results' looks like:
     """
     [
       {"pointer": "/a", message: "Property is required.", "severity": "error"}
@@ -202,7 +262,7 @@ Feature: Data validators and output format
       { "op": "move", "from": "/changedKey", "path": "/a" } 
     ]
     """
-    And validation output 'result' looks like:
+    And validation output 'results' looks like:
     """
     [
       { "pointer": "/missingKeyInRealData", "message": "Key is required.", "severity": "error" },
@@ -237,7 +297,7 @@ Feature: Data validators and output format
     When you perform validation on the entity
     
     Then validator 'blueprintParams' is used for validation
-    And validation 'result' looks like:
+    And validation 'results' looks like:
     """
     [
       { "pointer": '/now', "message": "Unknown key.", "severity": "warning" },
