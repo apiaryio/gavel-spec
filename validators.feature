@@ -107,7 +107,7 @@ Feature: Data validators and output format
       | TextDiff           |
       | HeadersJsonExample |
   
-  @nodejs @proposal
+  @nodejs @stable
   Scenario: Text diff validator
     **Text diff validator** is used to compare textual data. Output is in the format used in [Google Diff, Match and Patch libraries for Plain Text][] which is similar to GNU diff's unidiff format (`diff -u`).
     
