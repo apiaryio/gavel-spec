@@ -39,7 +39,7 @@ Gavel` filters out boring noise in API communication and helps you understand im
 - [x] [Textual HTTP body](https://www.relishapp.com/apiary/gavel/docs/expectations/body-text-example)
 - [x] [JSON HTTP body](https://www.relishapp.com/apiary/gavel/docs/expectations/body-json-exapmle)
 - [x] [HTTP body defined by JSON Shema](https://www.relishapp.com/apiary/gavel/docs/expectations/body-json-schema)
-- [ ] [Status code](https://www.relishapp.com/apiary/gavel/docs/expectations/status-code)
+- [X] [Status code](https://www.relishapp.com/apiary/gavel/docs/expectations/status-code)
 - [ ] [Method](https://www.relishapp.com/apiary/gavel/docs/expectations/request-method)
 - [ ] [URI](https://www.relishapp.com/apiary/gavel/docs/expectations/request-uri)
 
