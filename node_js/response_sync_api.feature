@@ -62,7 +62,7 @@ Feature: Response Sync API
     true
     """
 
-  @draft
+  @stable
   Scenario: validate
     When you call:
     """
@@ -70,19 +70,22 @@ Feature: Response Sync API
     """
     Then it will return:
     """
-    { 
-      headers: { 
-        length: 0,
-        amandaErrors: {},
-        now: '1374133598556',
-        dataError: null 
-      },
-      body: { s
-        length: 0,
-        amandaErrors: {},
-        now: '1374133598557',
-        dataError: null 
-      },
-      statusCode: true
-    }
+    { headers: 
+   { results: [],
+     realType: 'application/vnd.apiary.http-headers+json',
+     expectedType: 'application/vnd.apiary.http-headers+json',
+     validator: 'HeadersJsonExample',
+     rawData: { length: 0 } },
+  body: 
+   { results: [],
+     realType: 'application/json',
+     expectedType: 'application/json',
+     validator: 'JsonExample',
+     rawData: { length: 0 } },
+  statusCode: 
+   { realType: 'text/vnd.apiary.status-code',
+     expectedType: 'text/vnd.apiary.status-code',
+     validator: 'TextDiff',
+     rawData: '',
+     results: [] } }
     """

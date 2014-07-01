@@ -28,17 +28,6 @@ Feature: Headers
     """
     Then Gavel will NOT set any errors for "headers"
     And Request or Response is valid
-
-  @proposal
-  Scenario: Date header value is different in real payload
-    When real HTTP headers are following:
-    """
-    Content-Type: text/plain
-    Content-Length: 1354
-    Date: Thu, 25 Jul 2013 23:59:59 GMT
-    """
-    Then Request or Response is valid
-    And Gavel will NOT set any errors for "headers"
   
   @stable
   Scenario: Any other header value is different in real payload

@@ -148,47 +148,6 @@ Feature: Data validators and output format
     ]
     """
   
-  @nodejs @proposal
-  Scenario: HTTP Headers JSON example validator 
-    **HTTP Headers JSON validator** is used for validation of [HTTP headers][] represented as [JSON][] data [1] againts expected example in the same JSON representation . Output data is an array of error objects with each HTTP headers identified by the down-cased header [field name].
-    
-
-    [1] pseudo media type *application/vnd.apiary.http-headers+json*
-
-    [JSON]: http://tools.ietf.org/html/rfc4627
-    [HTTP headers]: http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html
-    [field name]: http://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2
-
-    Given you want validate "headers" HTTP component
-    And you express expected data by the following "application/vnd.apiary.http-headers+json" example:
-    """
-    {
-      "content-type": "application/json"
-    }    
-    """
-    And you have the following "application/vnd.apiary.http-headers+json" real data:
-    """
-    {
-      "content-type": "text/plain",
-      "date": "Fri, 31 Dec 1999 23:59:59 GMT"
-    }
-    """    
-    
-    When you perform validation on the HTTP component
-
-    Then validator "HeadersJsonExample" is used for validation
-    And validation key "results" looks like the following "JSON":
-    """
-    [
-      {
-        "pointer": "/content-type",
-        "severity": "error",
-        "message": "Value of the ‘content-type’ must be application/json."
-      }
-    ]
-    """
-    And each result entry must contain "pointer" key
-  
   @nodejs @stable
   Scenario: JSON schema validator 
     **JSON schema validator** is used to validate real [JSON][] data againts expected example [JSON Schema][]. Output data from JSON schema validator is an array of error objects with JSON properties identified by the [JSON Pointer][].

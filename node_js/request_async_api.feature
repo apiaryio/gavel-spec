@@ -62,29 +62,26 @@ Feature: Request Async API
     true
     """
   
-  @draft
+  @stable
   Scenario: validate
     When you call:
     """
-    gavel.validate(request, expected, function(error,result){
+    gavel.validate(request, expected, 'request', function(error,result){
       validationResult = result;
     });
     """
     Then "validationResult" variable will contain: 
     """
-    { 
-      headers: { 
-        length: 0,
-        amandaErrors: {},
-        now: '1374133598556',
-        dataError: null 
-      },
-      body: { 
-        length: 0,
-        amandaErrors: {},
-        now: '1374133598557',
-        dataError: null 
-      },
-      statusCode: true
-    }
+    { headers: 
+       { results: [],
+         realType: 'application/vnd.apiary.http-headers+json',
+         expectedType: 'application/vnd.apiary.http-headers+json',
+         validator: 'HeadersJsonExample',
+         rawData: { length: 0 } },
+      body: 
+       { results: [],
+         realType: 'text/plain',
+         expectedType: 'text/plain',
+         validator: 'TextDiff',
+         rawData: '' } }
     """  

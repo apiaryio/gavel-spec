@@ -57,7 +57,7 @@ Feature: request Sync API
     true
     """
 
-  @draft
+  @stable
   Scenario: validate
     When you call:
     """
@@ -65,19 +65,16 @@ Feature: request Sync API
     """
     Then it will return:
     """
-    { 
-      headers: { 
-        length: 0,
-        amandaErrors: {},
-        now: '1374133598556',
-        dataError: null 
-      },
-      body: { s
-        length: 0,
-        amandaErrors: {},
-        now: '1374133598557',
-        dataError: null 
-      },
-      statusCode: true
-    }
+    { headers: 
+       { results: [],
+         realType: 'application/vnd.apiary.http-headers+json',
+         expectedType: 'application/vnd.apiary.http-headers+json',
+         validator: 'HeadersJsonExample',
+         rawData: { length: 0 } },
+      body: 
+       { results: [],
+         realType: 'text/plain',
+         expectedType: 'text/plain',
+         validator: 'TextDiff',
+         rawData: '' } }
     """
