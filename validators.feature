@@ -1,16 +1,16 @@
 Feature: Data validators and output format
-  Each validatable HTTP component can be validated with several validators. Usage of a particular validator for a particular HTTP component depends on the format of data used for expression of the expectation. 
+  Each validatable HTTP component can be validated with several validators. Usage of a particular validator for a particular HTTP component depends on the format of data used for expression of the expectation.
 
   @stable @nodejs
   Scenario: Validators output format
-    Output JSON keys description:
+  Output JSON keys description:
 
     **realType**  - required - Media Type of real data
     **expectedType** - optional - Media Type of expected (example) data used for validation
     **validator**  - optional - Data validator used for real and expected data comparison
     **results** - required -  Validation result errors and warnings
     **rawData** - optional - Raw output from the data validator
-    
+
     When you perform a failing validation on any validatable HTTP component
     Then the validator output for the HTTP component looks like the following JSON:
     """
@@ -19,7 +19,7 @@ Feature: Data validators and output format
         {
           "pointer": "/c",
           "severity": "error",
-          "message": "The ‘c’ property is required."
+          "message": "Missing required property: c"
         }
       ],
       "realType": "application/json",
@@ -30,12 +30,10 @@ Feature: Data validators and output format
           "property": [
             "c"
           ],
-          "attributeName": "required",
           "attributeValue": true,
-          "message": "The ‘c’ property is required.",
-          "validator": "required",
-          "validatorName": "required",
-          "validatorValue": true
+          "message": "Missing required property: c",
+          "validatorName": "error",
+          "pointer": "/required/0"
         },
         "length": 1
       }
@@ -45,13 +43,12 @@ Feature: Data validators and output format
     """
     {
         "type": "object",
-        "$schema": "http://json-schema.org/draft-03/schema",
+        "$schema": "http://json-schema.org/draft-04/schema",
         "id": "#",
-        "required": true,
+        "required": [ "realType", "results" ],
         "properties": {
             "realType": {
                 "type": "string",
-                "required": true,
                 "default": "application/json"
             },
             "expectedType": {
@@ -77,19 +74,17 @@ Feature: Data validators and output format
                     "message": "Key is missing",
                     "severity": "error"
                 },
-                "required": true,
                 "type": "array",
                 "items": {
                     "type": "object",
+                    "required": ["message", "severity"],
                     "properties": {
                         "message": {
                             "type": "string",
-                            "required": true,
                             "default": "No validator found for real data type."
                         },
                         "severity": {
                             "type": "string",
-                            "required": true,
                             "default": "errors"
                         }
                     }
@@ -106,25 +101,25 @@ Feature: Data validators and output format
       | JsonExample        |
       | TextDiff           |
       | HeadersJsonExample |
-  
+
   @nodejs @stable
   Scenario: Text diff validator
     **Text diff validator** is used to compare textual data. Output is in the format used in [Google Diff, Match and Patch libraries for Plain Text][] which is similar to GNU diff's unidiff format (`diff -u`).
-    
-    [Google Diff, Match and Patch libraries for Plain Text]: https://code.google.com/p/google-diff-match-patch/wiki/Unidiff
-    
+
+  [Google Diff, Match and Patch libraries for Plain Text]: https://code.google.com/p/google-diff-match-patch/wiki/Unidiff
+
     Given you want validate "body" HTTP component
     And you express expected data by the following "text/plain" example:
     """
     There are two things that are more difficult than making an after-dinner speech: climbing a wall which is leaning toward you and kissing a girl who is leaning away from you.
-    """    
+    """
     And you have the following "text/plain" real data:
     """
     `Churchill` talked about climbing a wall which is leaning toward you and kissing a woman who is leaning away from you.
     """
-    
+
     When you perform validation on the HTTP component
-    
+
     Then validator "TextDiff" is used for validation
     And validation key "rawData" looks like the following "text":
     """
@@ -147,26 +142,25 @@ Feature: Data validators and output format
       }
     ]
     """
-  
+
   @nodejs @stable
-  Scenario: JSON schema validator 
+  Scenario: JSON schema validator
     **JSON schema validator** is used to validate real [JSON][] data againts expected example [JSON Schema][]. Output data from JSON schema validator is an array of error objects with JSON properties identified by the [JSON Pointer][].
-    
-    [JSON]: http://tools.ietf.org/html/rfc4627
-    [JSON Schema]: http://tools.ietf.org/html/draft-zyp-json-schema-04
-    [JSON Pointer]: http://tools.ietf.org/html/rfc6901
-    
+
+  [JSON]: http://tools.ietf.org/html/rfc4627
+  [JSON Schema]: http://tools.ietf.org/html/draft-zyp-json-schema-04
+  [JSON Pointer]: http://tools.ietf.org/html/rfc6901
+
     Given you want validate "body" HTTP component
     And you express expected data by the following "application/schema+json" example:
     """
     {
       "type":"object",
-      "$schema": "http://json-schema.org/draft-03/schema",
-      "required":true,
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "required":["a"],
       "properties":{
         "a": {
-          "type":"string",
-          "required":true
+          "type":"string"
         }
       }
     }    
@@ -176,8 +170,8 @@ Feature: Data validators and output format
     {
       "b": "c"
     }
-    """    
-    
+    """
+
     When you perform validation on the HTTP component
 
     Then validator "JsonSchema" is used for validation
@@ -185,28 +179,28 @@ Feature: Data validators and output format
     """
     [
       {
-        "pointer": "/a",
+        "pointer": "/required/0",
         "severity": "error",
-        "message": "The ‘a’ property is required."
+        "message": "Missing required property: a"
       },
       {
-        "pointer": "/a",
+        "pointer": "/required/0",
         "severity": "error",
         "message": "The a property must be a string (current value is undefined)."
       }
     ]
     """
     And each result entry must contain "pointer" key
-  
+
   @nodejs @stable
   Scenario: JSON example validator
     **JSON example validator** is used for validation of [JSON][] data against example given by another JSON. This validator generates recursively a [JSON schema] from given example to perform validation. All keys in JSON example are considered [required][] and all values must match [primitive type][] from example.
 
-    [JSON]: http://tools.ietf.org/html/rfc4627
-    [JSON Schema]: http://tools.ietf.org/html/draft-zyp-json-schema-04
-    [JSON Patch]: http://tools.ietf.org/html/rfc6902
-    [required]: http://tools.ietf.org/html/draft-zyp-json-schema-03#section-5.7
-    [primitive type]: http://tools.ietf.org/html/draft-zyp-json-schema-03#section-5.1
+  [JSON]: http://tools.ietf.org/html/rfc4627
+  [JSON Schema]: http://tools.ietf.org/html/draft-zyp-json-schema-04
+  [JSON Patch]: http://tools.ietf.org/html/rfc6902
+  [required]: http://tools.ietf.org/html/draft-zyp-json-schema-03#section-5.7
+  [primitive type]: http://tools.ietf.org/html/draft-zyp-json-schema-03#section-5.1
 
     Given you want validate "body" HTTP component
     And you express expected data by the following "application/json" example:
@@ -218,7 +212,7 @@ Feature: Data validators and output format
       },
       "missingKeyInRealData": "123"
     }
-    """    
+    """
     And you have the following "application/json" real data:
     """
     { 
@@ -228,21 +222,21 @@ Feature: Data validators and output format
       } 
     }
     """
-    
+
     When you perform validation on the HTTP component
     Then validator "JsonExample" is used for validation
     And validation key "results" looks like the following "JSON":
     """
     [
       {
-        "pointer": "/a",
+        "pointer": "/required/0",
         "severity": "error",
-        "message": "The ‘a’ property is required."
+        "message": "Missing required property: a"
       },
       {
-        "pointer": "/missingKeyInRealData",
+        "pointer": "/required/0",
         "severity": "error",
-        "message": "The ‘missingKeyInRealData’ property is required."
+        "message": "Missing required property: missingKeyInRealData"
       }
     ]
     """
