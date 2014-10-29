@@ -2,7 +2,7 @@
 
 > **Gavel is fair to everyone!**
 
-Gavel specification and documentation is written in [Gherkin][gherkin], laguage used by [Cucumber][cucumber], popular BDD tool and lives [here on Relish][gavelrelish].
+Gavel specification and documentation is written in [Gherkin][gherkin], language used by [Cucumber][cucumber], popular BDD tool and lives [here on Relish][gavelrelish].
 
 [Relish][relish] radically changed point of view on Cucumber from BDD tool to **documentation-oriented acceptance testing platform** for collaboration. Examples are made in raw HTTP, in order to focus on implementation independence. It means, thanks to Cucumber, each example in Gavel specification is tested against each Gavel implementation in continous integration. **So Gavel's behavior documentation can never be outdated and Gavel's behavior is consistent across all languages.**
 
