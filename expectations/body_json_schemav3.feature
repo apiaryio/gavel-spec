@@ -6,29 +6,33 @@ Feature: Body - JSON schema
     """
     {
       "type":"object",
-      "$schema": "http://json-schema.org/draft-04/schema",
-      "required": ["string"],
+      "$schema": "http://json-schema.org/draft-03/schema",
+      "required":true,
       "properties":{
         "object": {
           "type":"object",
-          "required": ["a", "c", "e"],
+          "required":false,
           "properties":{
             "a": {
-              "type":"string"
+              "type":"string",
+              "required":true
             },
             "c": {
-              "type":"string"
+              "type":"string",
+              "required":true
             },
             "e": {
-              "type":"string"
+              "type":"string",
+              "required":true
             }
           }
         },
         "string": {
-          "type":"string"
+          "type":"string",
+          "required":true
         }
       }
-    }    
+    }
     """
 
   Scenario: Payload body is valid against given schema
@@ -58,4 +62,3 @@ Feature: Body - JSON schema
     """
     Then Gavel will set some error for "body"
     And Request or Response is NOT valid
-    
