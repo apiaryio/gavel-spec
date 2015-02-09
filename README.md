@@ -1,10 +1,10 @@
-# GavelâHTTP validator
+# Gavelâ€”HTTP validator
 
 ![Gavel logo](https://raw.github.com/apiaryio/gavel/master/img/gavel.png)
 
-## What is Gavel? 
+## What is Gavel?
 
-> **Gavel is a tool for deciding which HTTP API call is valid and which is not.** 
+> **Gavel is a tool for deciding which HTTP API call is valid and which is not.**
 
 It's useful for:
 
@@ -70,5 +70,6 @@ See detailed [expectation behavior specification](https://www.relishapp.com/apia
 Looking for your language? Gavel has [platform independent Cucumber specification][platind]. So feel feel to contribute! We are looking forward to see library for your language. 
 
 [platind]: https://www.relishapp.com/apiary/gavel/docs/about
+
 
 
