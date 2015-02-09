@@ -1,7 +1,7 @@
-@nodejs 
+@nodejs
 
 Feature: Request Async API
-  
+
   Background:
     Given you call:
     """
@@ -33,9 +33,9 @@ Feature: Request Async API
     """
     And prepare result variable:
     """
-    var validationResult = "booboo"; 
+    var validationResult = "booboo";
     """
-  
+
   @stable
   Scenario: isValid
     When you call:
@@ -44,11 +44,11 @@ Feature: Request Async API
       validationResult = result;
     });
     """
-    Then "validationResult" variable will contain: 
+    Then "validationResult" variable will contain:
     """
     true
     """
-  
+
   @stable
   Scenario: isValidatable
     When you call:
@@ -57,11 +57,11 @@ Feature: Request Async API
       validationResult = result;
     });
     """
-    Then "validationResult" variable will contain: 
+    Then "validationResult" variable will contain:
     """
     true
     """
-  
+
   @stable
   Scenario: validate
     When you call:
@@ -70,18 +70,19 @@ Feature: Request Async API
       validationResult = result;
     });
     """
-    Then "validationResult" variable will contain: 
+    Then "validationResult" variable will contain:
     """
-    { headers: 
+    { version: "2",
+      headers:
        { results: [],
          realType: 'application/vnd.apiary.http-headers+json',
          expectedType: 'application/vnd.apiary.http-headers+json',
          validator: 'HeadersJsonExample',
          rawData: { length: 0 } },
-      body: 
+      body:
        { results: [],
          realType: 'text/plain',
          expectedType: 'text/plain',
          validator: 'TextDiff',
          rawData: '' } }
-    """  
+    """

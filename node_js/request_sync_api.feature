@@ -1,6 +1,6 @@
-@nodejs 
+@nodejs
 Feature: request Sync API
-  
+
   Background:
     Given you call:
     """
@@ -34,7 +34,7 @@ Feature: request Sync API
     """
     request['expected'] = expected;
     """
-  
+
   @stable
   Scenario: isValid
     When you call:
@@ -45,7 +45,7 @@ Feature: request Sync API
     """
     true
     """
-  
+
   @stables
   Scenario: isValidatable
     When you call:
@@ -65,13 +65,14 @@ Feature: request Sync API
     """
     Then it will return:
     """
-    { headers: 
+    { version: "2",
+      headers:
        { results: [],
          realType: 'application/vnd.apiary.http-headers+json',
          expectedType: 'application/vnd.apiary.http-headers+json',
          validator: 'HeadersJsonExample',
          rawData: { length: 0 } },
-      body: 
+      body:
        { results: [],
          realType: 'text/plain',
          expectedType: 'text/plain',
