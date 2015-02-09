@@ -29,7 +29,7 @@ Feature: Body - JSON example
       "array": [
         1,
         2
-      ]
+      ],
       "string": "Hello World"
     }
     """
@@ -70,12 +70,12 @@ Feature: Body - JSON example
         2
       ],
       "string": "Foo bar",
-      "boolean": false,
+      "boolean": false
 
     }    
-    """    
-    Then Gavel will set some error for "body"
-    And Request or Response is NOT valid
+    """
+    Then Gavel will NOT set any errors for "body"
+    And Request or Response is valid
 
   Scenario: Array member is missing in real JSON body
     When real HTTP body is following:

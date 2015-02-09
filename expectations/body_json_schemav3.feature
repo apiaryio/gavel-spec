@@ -1,31 +1,35 @@
 @nodejs @stable
-Feature: Body - JSON schema draft v4
+Feature: Body - JSON schema draft v3
 
   Background:
     Given you define expected HTTP body using the following "JSON schema":
     """
     {
       "type":"object",
-      "$schema": "http://json-schema.org/draft-04/schema",
-      "required": ["string"],
+      "$schema": "http://json-schema.org/draft-03/schema",
+      "required":true,
       "properties":{
         "object": {
           "type":"object",
-          "required": ["a", "c", "e"],
+          "required":false,
           "properties":{
             "a": {
-              "type":"string"
+              "type":"string",
+              "required":true
             },
             "c": {
-              "type":"string"
+              "type":"string",
+              "required":true
             },
             "e": {
-              "type":"string"
+              "type":"string",
+              "required":true
             }
           }
         },
         "string": {
-          "type":"string"
+          "type":"string",
+          "required":true
         }
       }
     }
@@ -58,4 +62,3 @@ Feature: Body - JSON schema draft v4
     """
     Then Gavel will set some error for "body"
     And Request or Response is NOT valid
-
