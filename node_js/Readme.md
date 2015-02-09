@@ -5,7 +5,9 @@
 [![devDependency Status](https://david-dm.org/apiaryio/gavel.js/dev-status.png)](https://david-dm.org/apiaryio/gavel.js#info=devDependencies)
 [![Coverage Status](https://coveralls.io/repos/apiaryio/gavel.js/badge.png)](https://coveralls.io/r/apiaryio/gavel.js)
 
+
 ![Gavel logo](https://raw.github.com/apiaryio/gavel/master/img/gavel.png)
+
 
 ## Usage
 
