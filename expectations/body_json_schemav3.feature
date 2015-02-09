@@ -1,5 +1,5 @@
 @nodejs @stable
-Feature: Body - JSON schema
+Feature: Body - JSON schema draft v3
 
   Background:
     Given you define expected HTTP body using the following "JSON schema":

@@ -1,5 +1,5 @@
 @nodejs @stable
-Feature: Body - JSON schema
+Feature: Body - JSON schema draft v4
 
   Background:
     Given you define expected HTTP body using the following "JSON schema":
@@ -28,7 +28,7 @@ Feature: Body - JSON schema
           "type":"string"
         }
       }
-    }    
+    }
     """
 
   Scenario: Payload body is valid against given schema
@@ -58,4 +58,4 @@ Feature: Body - JSON schema
     """
     Then Gavel will set some error for "body"
     And Request or Response is NOT valid
-    
+

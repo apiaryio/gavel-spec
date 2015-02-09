@@ -19,7 +19,7 @@ Feature: Data validators and output format
         {
           "pointer": "/c",
           "severity": "error",
-          "message": "Missing required property: c"
+          "message": "At '/c' Missing required property: c"
         }
       ],
       "realType": "application/json",
@@ -31,9 +31,8 @@ Feature: Data validators and output format
             "c"
           ],
           "attributeValue": true,
-          "message": "Missing required property: c",
-          "validatorName": "error",
-          "pointer": "/required/0"
+          "message": "At '/c' Missing required property: c",
+          "validatorName": "error"
         },
         "length": 1
       }
@@ -128,7 +127,7 @@ Feature: Data validators and output format
     +There are two things that are more difficult than making an after-dinner speech:
       cli
     @@ -136,13 +136,12 @@
-     g a 
+     g a
     -woman
     +girl
       who
@@ -136,8 +135,8 @@ Feature: Data validators and output format
     And validation key "results" looks like the following "JSON":
     """
     [
-      { 
-        "message": "Real and expected data does not match.", 
+      {
+        "message": "Real and expected data does not match.",
         "severity": "error"
       }
     ]
@@ -163,7 +162,7 @@ Feature: Data validators and output format
           "type":"string"
         }
       }
-    }    
+    }
     """
     And you have the following "application/json" real data:
     """
@@ -179,14 +178,9 @@ Feature: Data validators and output format
     """
     [
       {
-        "pointer": "/required/0",
+        "pointer": "/a",
         "severity": "error",
-        "message": "Missing required property: a"
-      },
-      {
-        "pointer": "/required/0",
-        "severity": "error",
-        "message": "The a property must be a string (current value is undefined)."
+        "message": "At '/a' Missing required property: a"
       }
     ]
     """
@@ -205,8 +199,8 @@ Feature: Data validators and output format
     Given you want validate "body" HTTP component
     And you express expected data by the following "application/json" example:
     """
-    { 
-      "a": "b", 
+    {
+      "a": "b",
       "c": {
         "d": "e"
       },
@@ -215,11 +209,11 @@ Feature: Data validators and output format
     """
     And you have the following "application/json" real data:
     """
-    { 
+    {
       "changedKey": "b",
-      "c": { 
+      "c": {
         "d": ["foo","bar"]
-      } 
+      }
     }
     """
 
@@ -229,14 +223,14 @@ Feature: Data validators and output format
     """
     [
       {
-        "pointer": "/required/0",
+        "pointer": "/a",
         "severity": "error",
-        "message": "Missing required property: a"
+        "message": "At '/a' Missing required property: a"
       },
       {
-        "pointer": "/required/0",
+        "pointer": "/missingKeyInRealData",
         "severity": "error",
-        "message": "Missing required property: missingKeyInRealData"
+        "message": "At '/missingKeyInRealData' Missing required property: missingKeyInRealData"
       }
     ]
     """
