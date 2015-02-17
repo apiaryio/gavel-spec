@@ -1,14 +1,14 @@
 @nodejs @stable
 Feature: Body - text example
-  
+
   Background:
-    Given you define expected HTTP body using the following "textual example": 
+    Given you define expected HTTP body using the following "textual example":
     """
     One, two, three, four.
     Orange, strawberry, banana?
     Dog, cat, mouse!
     """
-    
+
   Scenario: Line is missing in real payload body
     When real HTTP body is following:
     """

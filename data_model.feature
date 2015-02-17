@@ -1,6 +1,6 @@
 @nodejs @stable
 Feature: Data model
-  
+
   Scenario: HTTP Request
     When you have the following real HTTP request:
     """
@@ -22,7 +22,7 @@ Feature: Data model
       "body": ""
     }
     """
-  
+
   Scenario: HTTP Response
     When you have the following real HTTP response:
     """
@@ -53,9 +53,9 @@ Feature: Data model
       "body": "{\n  \"origin\": \"94.113.241.2\"\n}"
     }
     """
-  
 
- 
+
+
 
   Scenario: Expected HTTP Response
     When you expect HTTP status code "200"
@@ -68,14 +68,14 @@ Feature: Data model
     Content-Length: 30
     Connection: keep-alive
     """
-    
+
     And you define expected HTTP body using the following "JSON example":
     """
     {
       "origin": "94.113.241.2"
     }
     """
-    
+
     And you define expected HTTP body using the following "JSON schema":
     """
     {
@@ -94,7 +94,7 @@ Feature: Data model
           }
         }
       }
-    }    
+    }
     """
 
     Then "Expected HTTP Response" JSON representation will look like this:
@@ -136,12 +136,12 @@ Feature: Data model
     Host: httpbin.org
     Accept: */*
     """
-    
+
     And you define expected HTTP body using the following "textual example":
     """
     MyVariableOne=ValueOne&MyVariableTwo=ValueTwo
     """
-    
+
     Then "Expected HTTP Request" JSON representation will look like this:
     """
     {

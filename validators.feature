@@ -1,3 +1,4 @@
+@wip
 Feature: Data validators and output format
   Each validatable HTTP component can be validated with several validators. Usage of a particular validator for a particular HTTP component depends on the format of data used for expression of the expectation.
 
@@ -127,7 +128,7 @@ Feature: Data validators and output format
     +There are two things that are more difficult than making an after-dinner speech:
       cli
     @@ -136,13 +136,12 @@
-     g a
+     g a 
     -woman
     +girl
       who

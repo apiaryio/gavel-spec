@@ -31,6 +31,7 @@ Feature: Body - JSON schema draft v4
     }
     """
 
+
   Scenario: Payload body is valid against given schema
     When real HTTP body is following:
     """

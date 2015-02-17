@@ -1,7 +1,7 @@
 @nodejs @stable
 Feature: Body - JSON example
 
-  Background: 
+  Background:
     Given you define expected HTTP body using the following "JSON example":
     """
     {
@@ -15,7 +15,7 @@ Feature: Body - JSON example
         2
       ],
       "string": "Hello World"
-    }    
+    }
     """
 
   Scenario: Key is missing in real payload JSON body
@@ -51,8 +51,8 @@ Feature: Body - JSON example
       ],
       "string": "Hello World",
       "boolean": true
-    }    
-    """    
+    }
+    """
     Then Gavel will NOT set any errors for "body"
     And Request or Response is valid
 
@@ -72,7 +72,7 @@ Feature: Body - JSON example
       "string": "Foo bar",
       "boolean": false
 
-    }    
+    }
     """
     Then Gavel will NOT set any errors for "body"
     And Request or Response is valid
@@ -90,8 +90,8 @@ Feature: Body - JSON example
         1
       ],
       "string": "Foo bar",
-    }    
-    """     
+    }
+    """
     Then Gavel will set some error for "body"
     And Request or Response is NOT valid
 
@@ -110,8 +110,8 @@ Feature: Body - JSON example
         3
       ],
       "string": "Foo bar"
-    }    
-    """ 
+    }
+    """
     Then Gavel will NOT set any errors for "body"
     And Request or Response is valid
 

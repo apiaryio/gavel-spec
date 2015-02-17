@@ -8,7 +8,7 @@ Feature: Headers
     Content-Type: text/plain
     Date: Fri, 31 Dec 1999 23:59:59 GMT
     """
-  
+
   @stable
   Scenario: Header is missing in real payload
     When real HTTP headers are following:
@@ -24,11 +24,11 @@ Feature: Headers
     """
     Content-Type: text/plain
     Content-Length: 1354
-    Date: Fri, 31 Dec 1999 23:59:59 GMT    
+    Date: Fri, 31 Dec 1999 23:59:59 GMT
     """
     Then Gavel will NOT set any errors for "headers"
     And Request or Response is valid
-  
+
   @stable
   Scenario: Any other header value is different in real payload
     When real HTTP headers are following:
@@ -38,4 +38,3 @@ Feature: Headers
     """
     Then Gavel will set some error for "headers"
     And Request or Response is NOT valid
-  
