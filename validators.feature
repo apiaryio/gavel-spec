@@ -1,4 +1,3 @@
-@wip
 Feature: Data validators and output format
   Each validatable HTTP component can be validated with several validators. Usage of a particular validator for a particular HTTP component depends on the format of data used for expression of the expectation.
 
