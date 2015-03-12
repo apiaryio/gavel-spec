@@ -11,7 +11,7 @@
 
 ## Usage
 
-```
+```javascript
 var gavel = require('gavel');
 response = {
   "statusCode": "200",
@@ -46,7 +46,7 @@ gavel.isValid(response, expected, 'response', function(error,result){
 
 ## Installation
 
-```
+```shell
 npm install gavel
 ```
 
@@ -58,7 +58,7 @@ npm install gavel
 
 ## Development
 
-```
+```shell
 $ git clone git@github.com:apiaryio/gavel.js.git
 $ cd gavel.js
 $ git submodule init
