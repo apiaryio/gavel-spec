@@ -1,0 +1,17 @@
+sudo: false
+language: "node_js"
+node_js: "node"  # latest stable Node.js release
+env:
+  global:
+    # GH_TOKEN and NPM_TOKEN encrypted by 'travis encrypt' utility
+    - secure: "oHgwOp58ZBvhMUloGOXSO+9HtsIXvwD0lZMepKR2D5LTyKpMQ2E6TTf4K13ERUrgdajiDu57RkK2aywO/quSlVqCY61xZn58K32DBi19f7sQDigxkqG45PnQWdFrE/R4Ci0tU1n95ayxDXACloggFADHGi161vNRzlN5YmgY4Mw="
+cache:
+  directories:
+    - "node_modules"
+before_install:
+  - "npm -g install npm@latest"
+  - "curl -Lo travis_after_all.py https://raw.githubusercontent.com/dmakhno/travis_after_all/master/travis_after_all.py"
+after_success:  # travis_after_all.py is needed due to travis-ci/travis-ci#1548 & travis-ci/travis-ci#929
+  - "python travis_after_all.py"
+  - "export $(cat .to_export_back)"
+  - "npm run semantic-release || true"
