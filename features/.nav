@@ -1,5 +1,5 @@
 - cli.feature
-- node_js (Gavel.js - JavaScript implementation):
+- javascript (Gavel.js - JavaScript implementation):
   - response_async_api.feature
   - response_sync_api.feature
   - request_async_api.feature
