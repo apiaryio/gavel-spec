@@ -1,0 +1,41 @@
+{
+  "name": "gavel-spec",
+  "version": "0.0.0-semantically-released",
+  "description": "Behavior specification for Gavel, validator of HTTP transactions",
+  "scripts": {
+    "test": "node -e 'console.error(\"There are no tests at the moment\"); process.exit(0);'",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/apiaryio/gavel-spec"
+  },
+  "main": "index.js",
+  "keywords": [
+    "http",
+    "validation",
+    "behavior",
+    "cucumber",
+    "gherkin",
+    "specification",
+    "documentation",
+    "bdd",
+    "diff",
+    "feature",
+    "cucumber",
+    "request",
+    "response",
+    "gavel"
+  ],
+  "author": "Apiary Czech Republic, s.r.o. <support@apiary.io>",
+  "license": "MIT",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "devDependencies": {
+    "cz-conventional-changelog": "^1.1.6",
+    "semantic-release": "^4.3.5"
+  }
+}
