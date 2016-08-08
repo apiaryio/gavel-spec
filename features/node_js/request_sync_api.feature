@@ -1,4 +1,4 @@
-@nodejs
+@javascript
 Feature: request Sync API
 
   Background:

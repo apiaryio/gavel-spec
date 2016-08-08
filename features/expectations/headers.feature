@@ -1,4 +1,4 @@
-@nodejs
+@javascript
 Feature: Headers
   http://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2
 

@@ -31,8 +31,8 @@ If you get lost, don't hesitate to ask in [issues][] or inspect [existing implem
 
 -   **Implementation-specific tags**
 
-    - **@nodejs** - Implemented in Node.js, tested
-    - **@nodejs-pending** - Planned to implement in Node.js, _NOT_ tested
+    - **@javascript** - Implemented in JavaScript, tested
+    - **@javascript-pending** - Planned to implement in JavaScript, _NOT_ tested
 
 
 [git submodule]: https://git-scm.com/book/en/v2/Git-Tools-Submodules

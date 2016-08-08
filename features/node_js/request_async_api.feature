@@ -1,4 +1,4 @@
-@nodejs
+@javascript
 
 Feature: Request Async API
 

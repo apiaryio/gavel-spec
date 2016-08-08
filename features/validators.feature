@@ -1,7 +1,7 @@
 Feature: Data validators and output format
   Each validatable HTTP component can be validated with several validators. Usage of a particular validator for a particular HTTP component depends on the format of data used for expression of the expectation.
 
-  @stable @nodejs
+  @stable @javascript
   Scenario: Validators output format
   Output JSON keys description:
 
@@ -101,7 +101,7 @@ Feature: Data validators and output format
       | TextDiff           |
       | HeadersJsonExample |
 
-  @nodejs @stable
+  @javascript @stable
   Scenario: Text diff validator
     **Text diff validator** is used to compare textual data. Output is in the format used in [Google Diff, Match and Patch libraries for Plain Text][] which is similar to GNU diff's unidiff format (`diff -u`).
 
@@ -142,7 +142,7 @@ Feature: Data validators and output format
     ]
     """
 
-  @nodejs @stable
+  @javascript @stable
   Scenario: JSON schema validator
     **JSON schema validator** is used to validate real [JSON][] data againts expected example [JSON Schema][]. Output data from JSON schema validator is an array of error objects with JSON properties identified by the [JSON Pointer][].
 
@@ -186,7 +186,7 @@ Feature: Data validators and output format
     """
     And each result entry must contain "pointer" key
 
-  @nodejs @stable
+  @javascript @stable
   Scenario: JSON example validator
     **JSON example validator** is used for validation of [JSON][] data against example given by another JSON. This validator generates recursively a [JSON schema] from given example to perform validation. All keys in JSON example are considered [required][] and all values must match [primitive type][] from example.
 
