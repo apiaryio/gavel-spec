@@ -59,6 +59,8 @@ Currently publishing of a new version of the generated documentation is done man
 2. Add current version: `relish versions:add apiary/gavel:1.1.0` (the `1.1.0` should be the same number which appears on npm as the latest package version)
 3. Publish new version of the documentation: `relish push apiary/gavel:1.1.0 path ./features/`
 
+Steps 2-3 has been simplified as `npm run docs:publish` command.
+
 
 [Relish]: https://www.relishapp.com/
 [Gavel on Relish]: https://www.relishapp.com/apiary/gavel
