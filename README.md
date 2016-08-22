@@ -65,7 +65,7 @@ Steps 2-3 has been simplified as `npm run docs:publish` command.
 [Relish]: https://www.relishapp.com/
 [Gavel on Relish]: https://www.relishapp.com/apiary/gavel
 [Gavel.js]: https://github.com/apiaryio/gavel.js
-[Gavel.js on Relish]: https://www.relishapp.com/apiary/gavel/docs/node-js/
+[Gavel.js on Relish]: https://www.relishapp.com/apiary/gavel/docs/javascript/
 [Gherkin]: https://github.com/cucumber/gherkin
 [Cucumber]: https://github.com/cucumber/cucumber
 [git submodule]: https://git-scm.com/book/en/v2/Git-Tools-Submodules

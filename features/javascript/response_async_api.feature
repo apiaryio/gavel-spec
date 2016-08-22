@@ -1,4 +1,4 @@
-@nodejs
+@javascript
 
 Feature: Response Async API
 

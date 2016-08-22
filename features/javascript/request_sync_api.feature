@@ -1,15 +1,14 @@
-@nodejs
-
-Feature: Request Async API
+@javascript
+Feature: request Sync API
 
   Background:
     Given you call:
     """
     var gavel = require('gavel');
     """
-    And you define the following "request" variable:
+    And you define following "Httprequest" object:
     """
-    request = {
+    request = new gavel.HttpRequest({
       "method": "GET",
       "uri": "/ip",
       "headers": {
@@ -18,46 +17,42 @@ Feature: Request Async API
         "accept": "*/*"
       },
       "body": ""
-    };
+    });
     """
-    And you define the following "expected" variable:
+    And you define following "ExpectedHttpRequest" object:
     """
-    expected = {
+    expected = new gavel.ExpectedHttpRequest({
       "headers": {
         "user-agent": "curl/7.24.0 (x86_64-apple-darwin12.0) libcurl/7.24.0 OpenSSL/0.9.8x zlib/1.2.5",
         "host": "httpbin.org",
         "accept": "*/*"
       },
       "body": ""
-    };
+    });
     """
-    And prepare result variable:
+    And you add expected "request" to real "request":
     """
-    var validationResult = "booboo";
+    request['expected'] = expected;
     """
 
   @stable
   Scenario: isValid
     When you call:
     """
-    gavel.isValid(request, expected, 'request', function(error,result){
-      validationResult = result;
-    });
+    request.isValid();
     """
-    Then "validationResult" variable will contain:
+    Then it will return:
     """
     true
     """
 
-  @stable
+  @stables
   Scenario: isValidatable
     When you call:
     """
-    gavel.isValidatable(request, expected, 'request', function(error,result){
-      validationResult = result;
-    });
+    request.isValidatable();
     """
-    Then "validationResult" variable will contain:
+    Then it will return:
     """
     true
     """
@@ -66,11 +61,9 @@ Feature: Request Async API
   Scenario: validate
     When you call:
     """
-    gavel.validate(request, expected, 'request', function(error,result){
-      validationResult = result;
-    });
+    request.validate();
     """
-    Then "validationResult" variable will contain:
+    Then it will return:
     """
     { version: "2",
       headers:

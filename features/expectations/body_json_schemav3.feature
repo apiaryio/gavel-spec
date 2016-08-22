@@ -1,4 +1,4 @@
-@nodejs @stable
+@javascript @stable
 Feature: Body - JSON schema draft v3
 
   Background:

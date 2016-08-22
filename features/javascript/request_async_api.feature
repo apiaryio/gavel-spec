@@ -1,14 +1,15 @@
-@nodejs
-Feature: request Sync API
+@javascript
+
+Feature: Request Async API
 
   Background:
     Given you call:
     """
     var gavel = require('gavel');
     """
-    And you define following "Httprequest" object:
+    And you define the following "request" variable:
     """
-    request = new gavel.HttpRequest({
+    request = {
       "method": "GET",
       "uri": "/ip",
       "headers": {
@@ -17,42 +18,46 @@ Feature: request Sync API
         "accept": "*/*"
       },
       "body": ""
-    });
+    };
     """
-    And you define following "ExpectedHttpRequest" object:
+    And you define the following "expected" variable:
     """
-    expected = new gavel.ExpectedHttpRequest({
+    expected = {
       "headers": {
         "user-agent": "curl/7.24.0 (x86_64-apple-darwin12.0) libcurl/7.24.0 OpenSSL/0.9.8x zlib/1.2.5",
         "host": "httpbin.org",
         "accept": "*/*"
       },
       "body": ""
-    });
+    };
     """
-    And you add expected "request" to real "request":
+    And prepare result variable:
     """
-    request['expected'] = expected;
+    var validationResult = "booboo";
     """
 
   @stable
   Scenario: isValid
     When you call:
     """
-    request.isValid();
+    gavel.isValid(request, expected, 'request', function(error,result){
+      validationResult = result;
+    });
     """
-    Then it will return:
+    Then "validationResult" variable will contain:
     """
     true
     """
 
-  @stables
+  @stable
   Scenario: isValidatable
     When you call:
     """
-    request.isValidatable();
+    gavel.isValidatable(request, expected, 'request', function(error,result){
+      validationResult = result;
+    });
     """
-    Then it will return:
+    Then "validationResult" variable will contain:
     """
     true
     """
@@ -61,9 +66,11 @@ Feature: request Sync API
   Scenario: validate
     When you call:
     """
-    request.validate();
+    gavel.validate(request, expected, 'request', function(error,result){
+      validationResult = result;
+    });
     """
-    Then it will return:
+    Then "validationResult" variable will contain:
     """
     { version: "2",
       headers:
