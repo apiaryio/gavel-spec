@@ -1,5 +1,7 @@
 # Behavior spec for Gavel, validator of HTTP transactions
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/apiaryio/gavel-spec.svg)](https://greenkeeper.io/)
+
 [![Relish docs](https://img.shields.io/badge/docs-Relish-green.svg?style=flat)][Gavel on Relish]
 [![npm version](https://badge.fury.io/js/gavel-spec.svg)](https://badge.fury.io/js/gavel-spec)
 
