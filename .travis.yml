@@ -1,6 +1,5 @@
-sudo: false
 language: "node_js"
-node_js: "node"  # latest stable Node.js release
+node_js: "stable"
 env:
   global:
     # GH_TOKEN and NPM_TOKEN encrypted by 'travis encrypt' utility
@@ -8,7 +7,5 @@ env:
 cache:
   directories:
     - "node_modules"
-before_install:
-  - "npm -g install npm@latest"
 after_success:
   - "npm run semantic-release || true"
