@@ -4,7 +4,7 @@
   "description": "Behavior specification for Gavel, validator of HTTP transactions",
   "scripts": {
     "test": "node -e 'console.error(\"There are no tests at the moment\"); process.exit(0);'",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "semantic-release": "semantic-release",
     "docs:publish": "relish versions:add apiary/gavel:$(npm view . version); relish push apiary/gavel:$(npm view . version) path ./features/"
   },
   "repository": {
@@ -30,13 +30,7 @@
   ],
   "author": "Apiary Czech Republic, s.r.o. <support@apiary.io>",
   "license": "MIT",
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
-  },
   "devDependencies": {
-    "cz-conventional-changelog": "^1.1.6",
-    "semantic-release": "^7.0.2"
+    "semantic-release": "12.4.1"
   }
 }

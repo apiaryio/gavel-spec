@@ -2,6 +2,7 @@
 
 [![Relish docs](https://img.shields.io/badge/docs-Relish-green.svg?style=flat)][Gavel on Relish]
 [![npm version](https://badge.fury.io/js/gavel-spec.svg)](https://badge.fury.io/js/gavel-spec)
+[![Greenkeeper badge](https://badges.greenkeeper.io/apiaryio/gavel-spec.svg)](https://greenkeeper.io/)
 
 ![Gavel - Validator of HTTP Transactions](img/gavel.png?v=1&raw=true)
 
