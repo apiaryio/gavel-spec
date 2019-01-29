@@ -62,7 +62,7 @@ For more information see the [respective topic](https://www.relishapp.com/apiary
 
 - If the body is JSON, Gavel [validates only its structure](https://www.relishapp.com/apiary/gavel/docs/expectations/body-json-example).
 - Bodies in any other format are [validated as plain text](https://www.relishapp.com/apiary/gavel/docs/expectations/body-text-example).
-- If Gavel is provided with JSON Schema, it [overrides the default validation behavior](https://www.relishapp.com/apiary/gavel/docs/expectations/body-json-schema).
+- If Gavel is provided with JSON Schema, it [overrides the default validation behavior](https://relishapp.com/apiary/gavel/v/1-2-0/docs/expectations/body-json-schema-draft-v4).
 
 
 [Dredd]: https://github.com/apiaryio/dredd
