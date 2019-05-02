@@ -1,11 +1,9 @@
 language: "node_js"
 node_js: "stable"
-env:
-  global:
-    # GH_TOKEN and NPM_TOKEN encrypted by 'travis encrypt' utility
-    - secure: "oHgwOp58ZBvhMUloGOXSO+9HtsIXvwD0lZMepKR2D5LTyKpMQ2E6TTf4K13ERUrgdajiDu57RkK2aywO/quSlVqCY61xZn58K32DBi19f7sQDigxkqG45PnQWdFrE/R4Ci0tU1n95ayxDXACloggFADHGi161vNRzlN5YmgY4Mw="
 cache:
   directories:
     - "node_modules"
 after_success:
-  - "npm run semantic-release || true"
+  # The GH_TOKEN and NPM_TOKEN environment variables are expected to be set
+  # in https://travis-ci.org/apiaryio/dredd/settings
+  - "npm run semantic-release"
