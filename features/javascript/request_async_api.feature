@@ -9,7 +9,7 @@ Feature: Request Async API
     """
     And you define the following "request" variable:
     """
-    request = {
+    var request = {
       "method": "GET",
       "uri": "/ip",
       "headers": {
@@ -22,7 +22,7 @@ Feature: Request Async API
     """
     And you define the following "expected" variable:
     """
-    expected = {
+    var expected = {
       "headers": {
         "user-agent": "curl/7.24.0 (x86_64-apple-darwin12.0) libcurl/7.24.0 OpenSSL/0.9.8x zlib/1.2.5",
         "host": "httpbin.org",

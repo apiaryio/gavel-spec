@@ -8,7 +8,7 @@ Feature: request Sync API
     """
     And you define following "Httprequest" object:
     """
-    request = new gavel.HttpRequest({
+    var request = new gavel.HttpRequest({
       "method": "GET",
       "uri": "/ip",
       "headers": {
@@ -21,7 +21,7 @@ Feature: request Sync API
     """
     And you define following "ExpectedHttpRequest" object:
     """
-    expected = new gavel.ExpectedHttpRequest({
+    var expected = new gavel.ExpectedHttpRequest({
       "headers": {
         "user-agent": "curl/7.24.0 (x86_64-apple-darwin12.0) libcurl/7.24.0 OpenSSL/0.9.8x zlib/1.2.5",
         "host": "httpbin.org",
@@ -32,7 +32,7 @@ Feature: request Sync API
     """
     And you add expected "request" to real "request":
     """
-    request['expected'] = expected;
+    request.expected = expected;
     """
 
   @stable

@@ -8,7 +8,7 @@ Feature: Response Sync API
     """
     And you define following "HttpResponse" object:
     """
-    response = new gavel.HttpResponse({
+    var response = new gavel.HttpResponse({
       "statusCode": "200",
       "statusMessage": "OK",
       "headers": {
@@ -23,7 +23,7 @@ Feature: Response Sync API
     """
     And you define following "ExpectedHttpResponse" object:
     """
-    expected = new gavel.ExpectedHttpResponse({
+    var expected = new gavel.ExpectedHttpResponse({
       "statusCode": "200",
       "headers": {
         "content-type": "application/json",
@@ -37,7 +37,7 @@ Feature: Response Sync API
     """
     And you add expected "response" to real "response":
     """
-    response['expected'] = expected;
+    response.expected = expected;
     """
 
   @stable

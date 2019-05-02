@@ -9,7 +9,7 @@ Feature: Response Async API
     """
     And you define the following "response" variable:
     """
-    response = {
+    var response = {
       "statusCode": "200",
       "statusMessage": "OK",
       "headers": {
@@ -24,7 +24,7 @@ Feature: Response Async API
     """
     And you define the following "expected" variable:
     """
-    expected = {
+    var expected = {
       "statusCode": "200",
       "headers": {
         "content-type": "application/json",
