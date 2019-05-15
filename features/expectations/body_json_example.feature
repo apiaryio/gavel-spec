@@ -71,7 +71,6 @@ Feature: Body - JSON example
       ],
       "string": "Foo bar",
       "boolean": false
-
     }
     """
     Then Gavel will NOT set any errors for "body"
@@ -89,7 +88,7 @@ Feature: Body - JSON example
       "array": [
         1
       ],
-      "string": "Foo bar",
+      "string": "Foo bar"
     }
     """
     Then Gavel will set some error for "body"
