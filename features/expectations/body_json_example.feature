@@ -76,24 +76,6 @@ Feature: Body - JSON example
     Then Gavel will NOT set any errors for "body"
     And Request or Response is valid
 
-  Scenario: Array member is missing in real JSON body
-    When real HTTP body is following:
-    """
-    {
-      "object": {
-        "a": "bau bau",
-        "c": "boo boo",
-        "e": "mrau mrau"
-      },
-      "array": [
-        1
-      ],
-      "string": "Foo bar"
-    }
-    """
-    Then Gavel will set some error for "body"
-    And Request or Response is NOT valid
-
   Scenario: Extra array member in real JSON body
     When real HTTP body is following:
     """
