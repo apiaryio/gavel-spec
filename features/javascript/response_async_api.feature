@@ -78,6 +78,7 @@ Feature: Response Async API
     Then "validationResult" variable will contain:
     """
     { version: "2",
+      isValid: true,
       headers:
        { results: [],
          realType: 'application/vnd.apiary.http-headers+json',
