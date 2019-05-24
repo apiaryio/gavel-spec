@@ -42,19 +42,6 @@ Feature: Response Async API
     """
 
   @stable
-  Scenario: isValid
-    When you call:
-    """
-    gavel.isValid(response, expected, 'response', function(error,result){
-      validationResult = result;
-    });
-    """
-    Then "validationResult" variable will contain:
-    """
-    true
-    """
-
-  @stable
   Scenario: isValidatable
     When you call:
     """
