@@ -37,19 +37,6 @@ Feature: Request Async API
     """
 
   @stable
-  Scenario: isValidatable
-    When you call:
-    """
-    gavel.isValidatable(request, expected, 'request', function(error,result){
-      validationResult = result;
-    });
-    """
-    Then "validationResult" variable will contain:
-    """
-    true
-    """
-
-  @stable
   Scenario: validate
     When you call:
     """

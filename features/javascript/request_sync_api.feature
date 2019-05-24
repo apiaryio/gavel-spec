@@ -46,17 +46,6 @@ Feature: request Sync API
     true
     """
 
-  @stables
-  Scenario: isValidatable
-    When you call:
-    """
-    request.isValidatable();
-    """
-    Then it will return:
-    """
-    true
-    """
-
   @stable
   Scenario: validate
     When you call:

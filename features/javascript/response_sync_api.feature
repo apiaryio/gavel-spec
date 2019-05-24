@@ -52,17 +52,6 @@ Feature: Response Sync API
     """
 
   @stable
-  Scenario: isValidatable
-    When you call:
-    """
-    response.isValidatable();
-    """
-    Then it will return:
-    """
-    true
-    """
-
-  @stable
   Scenario: validate
     When you call:
     """
