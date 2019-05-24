@@ -41,17 +41,6 @@ Feature: Response Sync API
     """
 
   @stable
-  Scenario: isValid
-    When you call:
-    """
-    response.isValid();
-    """
-    Then it will return:
-    """
-    true
-    """
-
-  @stable
   Scenario: validate
     When you call:
     """

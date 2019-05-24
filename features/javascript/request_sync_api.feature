@@ -36,17 +36,6 @@ Feature: request Sync API
     """
 
   @stable
-  Scenario: isValid
-    When you call:
-    """
-    request.isValid();
-    """
-    Then it will return:
-    """
-    true
-    """
-
-  @stable
   Scenario: validate
     When you call:
     """

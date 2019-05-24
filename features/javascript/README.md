@@ -42,7 +42,7 @@ const expectedResponse = {
   'body': '{\n  "origin": "94.113.241.2"\n}'
 };
 
-gavel.isValid(actualResponse, expectedResponse, 'response', (err, result) => {
+gavel.validate(actualResponse, expectedResponse, 'response', (err, result) => {
   if (err) {
     console.error(err);
   } else {
