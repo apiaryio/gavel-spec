@@ -6,9 +6,9 @@ Feature: request Sync API
     """
     var gavel = require('gavel');
     """
-    And you define following "Httprequest" object:
+    And you define following HTTP request object:
     """
-    var request = new gavel.HttpRequest({
+    var request = {
       "method": "GET",
       "uri": "/ip",
       "headers": {
@@ -17,29 +17,25 @@ Feature: request Sync API
         "accept": "*/*"
       },
       "body": ""
-    });
+    };
     """
-    And you define following "ExpectedHttpRequest" object:
+    And you define following expected HTTP request object:
     """
-    var expected = new gavel.ExpectedHttpRequest({
+    var expected = {
       "headers": {
         "user-agent": "curl/7.24.0 (x86_64-apple-darwin12.0) libcurl/7.24.0 OpenSSL/0.9.8x zlib/1.2.5",
         "host": "httpbin.org",
         "accept": "*/*"
       },
       "body": ""
-    });
-    """
-    And you add expected "request" to real "request":
-    """
-    request.expected = expected;
+    };
     """
 
   @stable
   Scenario: validate
     When you call:
     """
-    request.validate();
+    gavel.validate(request, expected);
     """
     Then it will return:
     """

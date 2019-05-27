@@ -6,9 +6,9 @@ Feature: Response Sync API
     """
     var gavel = require('gavel');
     """
-    And you define following "HttpResponse" object:
+    And you define following HTTP response object:
     """
-    var response = new gavel.HttpResponse({
+    var response = {
       "statusCode": "200",
       "statusMessage": "OK",
       "headers": {
@@ -19,11 +19,11 @@ Feature: Response Sync API
       "connection": "keep-alive"
       },
       "body": "{\n  \"origin\": \"94.113.241.2\"\n}"
-    });
+    };
     """
-    And you define following "ExpectedHttpResponse" object:
+    And you define following expected HTTP response object:
     """
-    var expected = new gavel.ExpectedHttpResponse({
+    var expected = {
       "statusCode": "200",
       "headers": {
         "content-type": "application/json",
@@ -33,18 +33,14 @@ Feature: Response Sync API
         "connection": "keep-alive"
       },
       "body": "{\n  \"origin\": \"94.113.241.2\"\n}",
-    });
-    """
-    And you add expected "response" to real "response":
-    """
-    response.expected = expected;
+    };
     """
 
   @stable
   Scenario: validate
     When you call:
     """
-    response.validate();
+    gavel.validate(response, expected);
     """
     Then it will return:
     """
