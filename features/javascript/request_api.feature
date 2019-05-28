@@ -39,8 +39,7 @@ Feature: request Sync API
     """
     Then it will return:
     """
-    { version: "2",
-      isValid: true,
+    { isValid: true,
       headers:
        { results: [],
          realType: 'application/vnd.apiary.http-headers+json',
