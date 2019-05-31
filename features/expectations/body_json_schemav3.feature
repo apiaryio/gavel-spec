@@ -48,7 +48,9 @@ Feature: Body - JSON schema draft v3
     }
     """
     Then Gavel will NOT set any errors for "body"
+    And Gavel will set "isValid" to "true" for body
     And Request or Response is valid
+
   Scenario: Payload body not valid against schema
     When real HTTP body is following:
     """
@@ -61,4 +63,5 @@ Feature: Body - JSON schema draft v3
     }
     """
     Then Gavel will set some error for "body"
+    And Gavel will set "isValid" to "false" for "body"
     And Request or Response is NOT valid

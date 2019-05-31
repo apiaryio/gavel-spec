@@ -48,6 +48,7 @@ Feature: Response Sync API
       isValid: true,
       field: {
         headers: {
+          isValid: true,
           errors: [],
           realType: 'application/vnd.apiary.http-headers+json',
           expectedType: 'application/vnd.apiary.http-headers+json',
@@ -55,6 +56,7 @@ Feature: Response Sync API
           rawData: { length: 0 }
         },
         body: {
+          isValid: true,
           errors: [],
           realType: 'application/json',
           expectedType: 'application/json',
@@ -62,6 +64,7 @@ Feature: Response Sync API
           rawData: { length: 0 }
         },
         statusCode: {
+          isValid: true,
           errors: []
           realType: 'text/vnd.apiary.status-code',
           expectedType: 'text/vnd.apiary.status-code',
