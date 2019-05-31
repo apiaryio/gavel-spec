@@ -42,14 +42,14 @@ Feature: request Sync API
     { isValid: true,
       field: {
         headers: {
-          results: [],
+          errors: [],
           realType: 'application/vnd.apiary.http-headers+json',
           expectedType: 'application/vnd.apiary.http-headers+json',
           validator: 'HeadersJsonExample',
           rawData: { length: 0 }
         },
         body: {
-          results: [],
+          errors: [],
           realType: 'text/plain',
           expectedType: 'text/plain',
           validator: 'TextDiff',

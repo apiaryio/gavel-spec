@@ -48,25 +48,25 @@ Feature: Response Sync API
       isValid: true,
       field: {
         headers: {
-          results: [],
+          errors: [],
           realType: 'application/vnd.apiary.http-headers+json',
           expectedType: 'application/vnd.apiary.http-headers+json',
           validator: 'HeadersJsonExample',
           rawData: { length: 0 }
         },
         body: {
-          results: [],
+          errors: [],
           realType: 'application/json',
           expectedType: 'application/json',
           validator: 'JsonExample',
           rawData: { length: 0 }
         },
         statusCode: {
+          errors: []
           realType: 'text/vnd.apiary.status-code',
           expectedType: 'text/vnd.apiary.status-code',
           validator: 'TextDiff',
           rawData: '',
-          results: []
         }
       }
     }
