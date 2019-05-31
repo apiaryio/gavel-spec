@@ -44,23 +44,30 @@ Feature: Response Sync API
     """
     Then it will return:
     """
-    { isValid: true,
-      headers:
-      { results: [],
-        realType: 'application/vnd.apiary.http-headers+json',
-        expectedType: 'application/vnd.apiary.http-headers+json',
-        validator: 'HeadersJsonExample',
-        rawData: { length: 0 } },
-      body:
-      { results: [],
-        realType: 'application/json',
-        expectedType: 'application/json',
-        validator: 'JsonExample',
-        rawData: { length: 0 } },
-      statusCode:
-      { realType: 'text/vnd.apiary.status-code',
-        expectedType: 'text/vnd.apiary.status-code',
-        validator: 'TextDiff',
-        rawData: '',
-        results: [] } }
+    {
+      isValid: true,
+      field: {
+        headers: {
+          results: [],
+          realType: 'application/vnd.apiary.http-headers+json',
+          expectedType: 'application/vnd.apiary.http-headers+json',
+          validator: 'HeadersJsonExample',
+          rawData: { length: 0 }
+        },
+        body: {
+          results: [],
+          realType: 'application/json',
+          expectedType: 'application/json',
+          validator: 'JsonExample',
+          rawData: { length: 0 }
+        },
+        statusCode: {
+          realType: 'text/vnd.apiary.status-code',
+          expectedType: 'text/vnd.apiary.status-code',
+          validator: 'TextDiff',
+          rawData: '',
+          results: []
+        }
+      }
+    }
     """

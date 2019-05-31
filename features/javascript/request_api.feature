@@ -40,16 +40,21 @@ Feature: request Sync API
     Then it will return:
     """
     { isValid: true,
-      headers:
-       { results: [],
-         realType: 'application/vnd.apiary.http-headers+json',
-         expectedType: 'application/vnd.apiary.http-headers+json',
-         validator: 'HeadersJsonExample',
-         rawData: { length: 0 } },
-      body:
-       { results: [],
-         realType: 'text/plain',
-         expectedType: 'text/plain',
-         validator: 'TextDiff',
-         rawData: '' } }
+      field: {
+        headers: {
+          results: [],
+          realType: 'application/vnd.apiary.http-headers+json',
+          expectedType: 'application/vnd.apiary.http-headers+json',
+          validator: 'HeadersJsonExample',
+          rawData: { length: 0 }
+        },
+        body: {
+          results: [],
+          realType: 'text/plain',
+          expectedType: 'text/plain',
+          validator: 'TextDiff',
+          rawData: ''
+        }
+      },
+    }
     """
