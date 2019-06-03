@@ -15,6 +15,7 @@ Feature: Data validators and output format
     Then the validator output for the HTTP component looks like the following JSON:
     """
     {
+      "isValid": false,
       "errors": [
         {
           "pointer": "/c",
