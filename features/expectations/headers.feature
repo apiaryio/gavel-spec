@@ -58,7 +58,7 @@ Feature: Headers
     ETag: something-completely-different
     """
     Then Gavel will NOT set any errors for "headers"
-    And Gavel will set "isValid" to "true" for "body"
+    And Gavel will set "isValid" to "true" for "headers"
     And Request or Response is valid
 
 
