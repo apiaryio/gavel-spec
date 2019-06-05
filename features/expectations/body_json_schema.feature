@@ -60,5 +60,5 @@ Feature: Body - JSON schema draft v4
     }
     """
     Then Gavel will set some error for "body"
-    And Gavel will set "isValid" to "false" for "body"
+    And field "body" is NOT valid
     And Request or Response is NOT valid

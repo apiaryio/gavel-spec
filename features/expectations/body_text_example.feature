@@ -16,7 +16,7 @@ Feature: Body - text example
     Orange, strawberry, banana?
     """
     Then Gavel will set some error for "body"
-    And Gavel will set "isValid" to "false" for "body"
+    And field "body" is NOT valid
     And Request or Response is NOT valid
 
   Scenario: Extra line in real payload textual body
