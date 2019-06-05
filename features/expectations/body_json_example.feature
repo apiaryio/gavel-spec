@@ -74,7 +74,7 @@ Feature: Body - JSON example
     }
     """
     Then Gavel will NOT set any errors for "body"
-    And Gavel will set "isValid" to "true" for "body"
+    And field "body" is valid
     And Request or Response is valid
 
   Scenario: Extra array member in real JSON body

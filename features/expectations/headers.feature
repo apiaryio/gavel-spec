@@ -18,7 +18,7 @@ Feature: Headers
     Content-Type: text/plain
     """
     Then Gavel will set some error for "headers"
-    And Gavel will set "isValid" to "false" for "headers"
+    And field "headers" is NOT valid
     And Request or Response is NOT valid
 
   @stable
@@ -32,7 +32,7 @@ Feature: Headers
     ETag: 68b329da9893e34099c7d8ad5cb9c940
     """
     Then Gavel will NOT set any errors for "headers"
-    And Gavel will set "isValid" to "true" for "headers"
+    And field "headers" is valid
     And Request or Response is valid
 
   @stable
@@ -45,7 +45,7 @@ Feature: Headers
     ETag: 68b329da9893e34099c7d8ad5cb9c940
     """
     Then Gavel will set some error for "headers"
-    And Gavel will set "isValid" to "false" for "headers"
+    And field "headers" is NOT valid
     And Request or Response is NOT valid
 
   @stable
@@ -58,7 +58,7 @@ Feature: Headers
     ETag: something-completely-different
     """
     Then Gavel will NOT set any errors for "headers"
-    And Gavel will set "isValid" to "true" for "headers"
+    And field "headers" is valid
     And Request or Response is valid
 
 

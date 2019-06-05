@@ -45,7 +45,7 @@ Feature: Body - JSON schema draft v4
     }
     """
     Then Gavel will NOT set any errors for "body"
-    And Gavel will set "isValid" to "true" for "body"
+    And field "body" is valid
     And Request or Response is valid
 
   Scenario: Payload body not valid against schema
