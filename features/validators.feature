@@ -19,7 +19,6 @@ Feature: Data validators and output format
       "errors": [
         {
           "pointer": "/c",
-          "severity": "error",
           "message": "At '/c' Missing required property: c"
         }
       ],
@@ -71,21 +70,16 @@ Feature: Data validators and output format
             "errors": {
                 "default": {
                     "pointer": "/missingKeyInRealData",
-                    "message": "Key is missing",
-                    "severity": "error"
+                    "message": "Key is missing"
                 },
                 "type": "array",
                 "items": {
                     "type": "object",
-                    "required": ["message", "severity"],
+                    "required": ["message"],
                     "properties": {
                         "message": {
                             "type": "string",
                             "default": "No validator found for real data type."
-                        },
-                        "severity": {
-                            "type": "string",
-                            "default": "errors"
                         }
                     }
                 }
@@ -94,7 +88,6 @@ Feature: Data validators and output format
     }
     """
     And each result entry under "errors" key must contain "message" key
-    And each result entry under "errors" key must contain "severity" key
     And validated HTTP component is considered invalid
     And the output JSON contains key "validator" with one of the following values:
       | JsonSchema         |
@@ -137,8 +130,7 @@ Feature: Data validators and output format
     """
     [
       {
-        "message": "Real and expected data does not match.",
-        "severity": "error"
+        "message": "Real and expected data does not match."
       }
     ]
     """
@@ -180,7 +172,6 @@ Feature: Data validators and output format
     [
       {
         "pointer": "/a",
-        "severity": "error",
         "message": "At '/a' Missing required property: a"
       }
     ]
@@ -225,12 +216,10 @@ Feature: Data validators and output format
     [
       {
         "pointer": "/a",
-        "severity": "error",
         "message": "At '/a' Missing required property: a"
       },
       {
         "pointer": "/missingKeyInRealData",
-        "severity": "error",
         "message": "At '/missingKeyInRealData' Missing required property: missingKeyInRealData"
       }
     ]
