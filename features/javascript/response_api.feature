@@ -8,7 +8,7 @@ Feature: Response validation
     """
     And you define following HTTP response object:
     """
-    const response = {
+    const real = {
       "statusCode": "200",
       "statusMessage": "OK",
       "headers": {
@@ -40,7 +40,7 @@ Feature: Response validation
   Scenario: validate
     When you call:
     """
-    gavel.validate(response, expected);
+    gavel.validate(expected, real);
     """
     Then it will return:
     """

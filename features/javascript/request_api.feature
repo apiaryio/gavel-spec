@@ -8,7 +8,7 @@ Feature: Request validation
     """
     And you define following HTTP request object:
     """
-    const request = {
+    const real = {
       "method": "GET",
       "uri": "/ip",
       "headers": {
@@ -35,7 +35,7 @@ Feature: Request validation
   Scenario: validate
     When you call:
     """
-    gavel.validate(request, expected);
+    gavel.validate(expected, real);
     """
     Then it will return:
     """
