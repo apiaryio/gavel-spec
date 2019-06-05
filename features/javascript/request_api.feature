@@ -41,7 +41,7 @@ Feature: Request validation
     """
     {
       isValid: true,
-      field: {
+      fields: {
         headers: {
           isValid: true,
           errors: [],

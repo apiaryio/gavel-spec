@@ -46,7 +46,7 @@ Feature: Response validation
     """
     {
       isValid: true,
-      field: {
+      fields: {
         headers: {
           isValid: true,
           errors: [],
