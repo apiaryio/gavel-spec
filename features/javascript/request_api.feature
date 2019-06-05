@@ -1,14 +1,14 @@
 @javascript
-Feature: request Sync API
+Feature: Request validation
 
   Background:
     Given you call:
     """
-    var gavel = require('gavel');
+    const gavel = require('gavel');
     """
     And you define following HTTP request object:
     """
-    var request = {
+    const request = {
       "method": "GET",
       "uri": "/ip",
       "headers": {
@@ -21,7 +21,7 @@ Feature: request Sync API
     """
     And you define following expected HTTP request object:
     """
-    var expected = {
+    const expected = {
       "headers": {
         "user-agent": "curl/7.24.0 (x86_64-apple-darwin12.0) libcurl/7.24.0 OpenSSL/0.9.8x zlib/1.2.5",
         "host": "httpbin.org",
@@ -39,7 +39,8 @@ Feature: request Sync API
     """
     Then it will return:
     """
-    { isValid: true,
+    {
+      isValid: true,
       field: {
         headers: {
           isValid: true,
@@ -57,6 +58,6 @@ Feature: request Sync API
           validator: 'TextDiff',
           rawData: ''
         }
-      },
+      }
     }
     """

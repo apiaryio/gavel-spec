@@ -1,14 +1,14 @@
 @javascript
-Feature: Response Sync API
+Feature: Response validation
 
   Background:
     Given you call:
     """
-    var gavel = require('gavel');
+    const gavel = require('gavel');
     """
     And you define following HTTP response object:
     """
-    var response = {
+    const response = {
       "statusCode": "200",
       "statusMessage": "OK",
       "headers": {
@@ -23,7 +23,7 @@ Feature: Response Sync API
     """
     And you define following expected HTTP response object:
     """
-    var expected = {
+    const expected = {
       "statusCode": "200",
       "headers": {
         "content-type": "application/json",
@@ -65,11 +65,11 @@ Feature: Response Sync API
         },
         statusCode: {
           isValid: true,
-          errors: []
+          errors: [],
           realType: 'text/vnd.apiary.status-code',
           expectedType: 'text/vnd.apiary.status-code',
           validator: 'TextDiff',
-          rawData: '',
+          rawData: ''
         }
       }
     }
