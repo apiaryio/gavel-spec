@@ -6,12 +6,10 @@ Feature: Method
 
   Scenario: HTTP message method match
     When real method is "POST"
-    Then Gavel will NOT set any errors for "method"
-    And field "method" is valid
+    Then field "method" is valid
     And Request or Response is valid
 
   Scenario: Different HTTP message method
     When real HTTP message method is "GET"
-    Then Gavel will set some errors for "method"
-    And field "method" is NOT valid
+    Then field "method" is NOT valid
     And Request or Response is NOT valid

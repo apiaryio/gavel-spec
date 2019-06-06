@@ -15,8 +15,7 @@ Feature: Body - text example
     One, two, three, four.
     Orange, strawberry, banana?
     """
-    Then Gavel will set some error for "body"
-    And field "body" is NOT valid
+    Then field "body" is NOT valid
     And Request or Response is NOT valid
 
   Scenario: Extra line in real payload textual body
@@ -27,8 +26,7 @@ Feature: Body - text example
     Orange, strawberry, banana?
     Dog, cat, mouse!
     """
-    Then Gavel will set some error for "body"
-    And field "body" is NOT valid
+    Then field "body" is NOT valid
     And Request or Response is NOT valid
 
   Scenario: Line is changed in real textual body
@@ -38,8 +36,7 @@ Feature: Body - text example
     Orange, strawberry, banana?
     Dog, cat, mouse!
     """
-    Then Gavel will set some error for "body"
-    And field "body" is NOT valid
+    Then field "body" is NOT valid
     And Request or Response is NOT valid
 
   Scenario: Text in body equals defined example
@@ -49,7 +46,6 @@ Feature: Body - text example
     Orange, strawberry, banana?
     Dog, cat, mouse!
     """
-    Then Gavel will NOT set any errors for "body"
-    And field "body" is valid
+    Then field "body" is valid
     And Request or Response is valid
 

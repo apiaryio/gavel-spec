@@ -17,8 +17,7 @@ Feature: Headers
     """
     Content-Type: text/plain
     """
-    Then Gavel will set some error for "headers"
-    And field "headers" is NOT valid
+    Then field "headers" is NOT valid
     And Request or Response is NOT valid
 
   @stable
@@ -31,8 +30,7 @@ Feature: Headers
     Location: /here
     ETag: 68b329da9893e34099c7d8ad5cb9c940
     """
-    Then Gavel will NOT set any errors for "headers"
-    And field "headers" is valid
+    Then field "headers" is valid
     And Request or Response is valid
 
   @stable
@@ -44,8 +42,7 @@ Feature: Headers
     Location: /here
     ETag: 68b329da9893e34099c7d8ad5cb9c940
     """
-    Then Gavel will set some error for "headers"
-    And field "headers" is NOT valid
+    Then field "headers" is NOT valid
     And Request or Response is NOT valid
 
   @stable
@@ -57,8 +54,7 @@ Feature: Headers
     Location: /there
     ETag: something-completely-different
     """
-    Then Gavel will NOT set any errors for "headers"
-    And field "headers" is valid
+    Then field "headers" is valid
     And Request or Response is valid
 
 
