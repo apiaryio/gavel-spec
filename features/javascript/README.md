@@ -19,17 +19,6 @@ npm install gavel
 ```javascript
 const gavel = require('gavel');
 
-const actualResponse = {
-  'statusCode': '200',
-  'headers': {
-    'content-type': 'application/json',
-    'date': 'Wed, 03 Jul 2013 13:30:53 GMT',
-    'server': 'gunicorn/0.17.4',
-    'content-length': '30',
-    'connection': 'keep-alive'
-  },
-  'body': '{\n  "origin": "94.113.241.2"\n}'
-};
 const expectedResponse = {
   'statusCode': '200',
   'headers': {
@@ -42,13 +31,19 @@ const expectedResponse = {
   'body': '{\n  "origin": "94.113.241.2"\n}'
 };
 
-gavel.validate(actualResponse, expectedResponse, 'response', (err, result) => {
-  if (err) {
-    console.error(err);
-  } else {
-    console.log(result);
-  }
-});
+const realResponse = {
+  'statusCode': '200',
+  'headers': {
+    'content-type': 'application/json',
+    'date': 'Wed, 03 Jul 2013 13:30:53 GMT',
+    'server': 'gunicorn/0.17.4',
+    'content-length': '30',
+    'connection': 'keep-alive'
+  },
+  'body': '{\n  "origin": "94.113.241.2"\n}'
+};
+
+const result = gavel.validate(expectedResponse, realResponse);
 ```
 
 ### Command-line interface
