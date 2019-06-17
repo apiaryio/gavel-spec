@@ -8,17 +8,17 @@ Feature: Data validators and output format
     **realType**  - required - Media Type of real data
     **expectedType** - optional - Media Type of expected (example) data used for validation
     **validator**  - optional - Data validator used for real and expected data comparison
-    **results** - required -  Validation result errors and warnings
+    **errors** - required -  Validation result errors and warnings
     **rawData** - optional - Raw output from the data validator
 
     When you perform a failing validation on any validatable HTTP component
     Then the validator output for the HTTP component looks like the following JSON:
     """
     {
-      "results": [
+      "isValid": false,
+      "errors": [
         {
           "pointer": "/c",
-          "severity": "error",
           "message": "At '/c' Missing required property: c"
         }
       ],
@@ -44,7 +44,7 @@ Feature: Data validators and output format
         "type": "object",
         "$schema": "http://json-schema.org/draft-04/schema",
         "id": "#",
-        "required": [ "realType", "results" ],
+        "required": [ "realType", "errors" ],
         "properties": {
             "realType": {
                 "type": "string",
@@ -67,24 +67,19 @@ Feature: Data validators and output format
                     }
                 ]
             },
-            "results": {
+            "errors": {
                 "default": {
                     "pointer": "/missingKeyInRealData",
-                    "message": "Key is missing",
-                    "severity": "error"
+                    "message": "Key is missing"
                 },
                 "type": "array",
                 "items": {
                     "type": "object",
-                    "required": ["message", "severity"],
+                    "required": ["message"],
                     "properties": {
                         "message": {
                             "type": "string",
                             "default": "No validator found for real data type."
-                        },
-                        "severity": {
-                            "type": "string",
-                            "default": "errors"
                         }
                     }
                 }
@@ -92,8 +87,7 @@ Feature: Data validators and output format
         }
     }
     """
-    And each result entry under "results" key must contain "message" key
-    And each result entry under "results" key must contain "severity" key
+    And each result entry under "errors" key must contain "message" key
     And validated HTTP component is considered invalid
     And the output JSON contains key "validator" with one of the following values:
       | JsonSchema         |
@@ -132,12 +126,11 @@ Feature: Data validators and output format
     +girl
       who
     """
-    And validation key "results" looks like the following "JSON":
+    And validation key "errors" looks like the following "JSON":
     """
     [
       {
-        "message": "Real and expected data does not match.",
-        "severity": "error"
+        "message": "Real and expected data does not match."
       }
     ]
     """
@@ -174,12 +167,11 @@ Feature: Data validators and output format
     When you perform validation on the HTTP component
 
     Then validator "JsonSchema" is used for validation
-    And validation key "results" looks like the following "JSON":
+    And validation key "errors" looks like the following "JSON":
     """
     [
       {
         "pointer": "/a",
-        "severity": "error",
         "message": "At '/a' Missing required property: a"
       }
     ]
@@ -219,17 +211,15 @@ Feature: Data validators and output format
 
     When you perform validation on the HTTP component
     Then validator "JsonExample" is used for validation
-    And validation key "results" looks like the following "JSON":
+    And validation key "errors" looks like the following "JSON":
     """
     [
       {
         "pointer": "/a",
-        "severity": "error",
         "message": "At '/a' Missing required property: a"
       },
       {
         "pointer": "/missingKeyInRealData",
-        "severity": "error",
         "message": "At '/missingKeyInRealData' Missing required property: missingKeyInRealData"
       }
     ]

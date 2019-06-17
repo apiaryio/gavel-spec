@@ -33,7 +33,7 @@ Feature: Body - JSON example
       "string": "Hello World"
     }
     """
-    Then Gavel will set some error for "body"
+    Then field "body" is NOT valid
     And Request or Response is NOT valid
 
   Scenario: Extra key in real JSON body
@@ -53,7 +53,7 @@ Feature: Body - JSON example
       "boolean": true
     }
     """
-    Then Gavel will NOT set any errors for "body"
+    Then field "body" is valid
     And Request or Response is valid
 
   Scenario: Different values in real JSON body
@@ -73,7 +73,7 @@ Feature: Body - JSON example
       "boolean": false
     }
     """
-    Then Gavel will NOT set any errors for "body"
+    Then field "body" is valid
     And Request or Response is valid
 
   Scenario: Extra array member in real JSON body
@@ -93,6 +93,6 @@ Feature: Body - JSON example
       "string": "Foo bar"
     }
     """
-    Then Gavel will NOT set any errors for "body"
+    Then field "body" is valid
     And Request or Response is valid
 
