@@ -1,4 +1,4 @@
-@stable
+@javascript @stable
 Feature: Status code
 
   Background:
