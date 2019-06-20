@@ -22,13 +22,13 @@ Feature: URI
   Scenario Outline: URI with parameter having multiple values
     Given you expect HTTP message URI "/animals?type=cats&type=dogs"
     When real HTTP message URI is <real-uri>
-    Then field "uri" <is-uri-valid>
-    And Request or Response <is-message-valid>
+    Then field "uri" <is-valid>
+    And Request or Response <is-valid>
 
     Examples:
-      | real-uri                       | is-uri-valid | is-message-valid |
-      | "/animals?type=cats&type=dogs" | is valid     | is valid         |
-      | "/animals?type=dogs&type=cats" | is NOT valid | is NOT valid     |
+      | real-uri                       | is-valid     |
+      | "/animals?type=cats&type=dogs" | is valid     |
+      | "/animals?type=dogs&type=cats" | is NOT valid |
 
   Scenario: Case-sensitive URI comparison
     Given you expect HTTP message URI "/animals?type=cats"
