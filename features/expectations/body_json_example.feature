@@ -33,8 +33,8 @@ Feature: Body - JSON example
       "string": "Hello World"
     }
     """
-    Then field "body" is NOT valid
-    And Request or Response is NOT valid
+    Then field "body" MUST NOT be valid
+    And Request or Response MUST NOT be valid
 
   Scenario: Extra key in real JSON body
     When real HTTP body is following:
@@ -53,8 +53,8 @@ Feature: Body - JSON example
       "boolean": true
     }
     """
-    Then field "body" is valid
-    And Request or Response is valid
+    Then field "body" MUST be valid
+    And Request or Response MUST be valid
 
   Scenario: Different values in real JSON body
     When real HTTP body is following:
@@ -73,8 +73,8 @@ Feature: Body - JSON example
       "boolean": false
     }
     """
-    Then field "body" is valid
-    And Request or Response is valid
+    Then field "body" MUST be valid
+    And Request or Response MUST be valid
 
   Scenario: Extra array member in real JSON body
     When real HTTP body is following:
@@ -93,6 +93,5 @@ Feature: Body - JSON example
       "string": "Foo bar"
     }
     """
-    Then field "body" is valid
-    And Request or Response is valid
-
+    Then field "body" MUST be valid
+    And Request or Response MUST be valid

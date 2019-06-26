@@ -6,10 +6,10 @@ Feature: Status code
 
   Scenario: Response status code match
     When real status code is "200"
-    Then field "statusCode" is valid
-    And Request or Response is valid
+    Then field "statusCode" MUST be valid
+    And Request or Response MUST be valid
 
   Scenario: Different real response status
     When real status code is "500"
-    Then field "statusCode" is NOT valid
-    And Request or Response is NOT valid
+    Then field "statusCode" MUST NOT be valid
+    And Request or Response MUST NOT be valid

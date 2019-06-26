@@ -31,7 +31,7 @@ const expectedResponse = {
   'body': '{\n  "origin": "94.113.241.2"\n}'
 };
 
-const realResponse = {
+const actualResponse = {
   'statusCode': '200',
   'headers': {
     'content-type': 'application/json',
@@ -43,7 +43,7 @@ const realResponse = {
   'body': '{\n  "origin": "94.113.241.2"\n}'
 };
 
-const result = gavel.validate(expectedResponse, realResponse);
+const result = gavel.validate(expectedResponse, actualResponse);
 ```
 
 ### Command-line interface

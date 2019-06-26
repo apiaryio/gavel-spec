@@ -5,11 +5,7 @@ Feature: Data validators and output format
   Scenario: Validators output format
   Output JSON keys description:
 
-    **realType**  - required - Media Type of real data
-    **expectedType** - optional - Media Type of expected (example) data used for validation
-    **validator**  - optional - Data validator used for real and expected data comparison
     **errors** - required -  Validation result errors and warnings
-    **rawData** - optional - Raw output from the data validator
 
     When you perform a failing validation on any validatable HTTP component
     Then the validator output for the HTTP component looks like the following JSON:

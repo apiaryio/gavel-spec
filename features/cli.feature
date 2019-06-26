@@ -36,6 +36,4 @@ Feature: Command-line interface
     cat real_without_cors | curl-trace-parser | gavel expected
     """
     
-    Then exit status is 1 
-
-    
+    Then exit status is 1

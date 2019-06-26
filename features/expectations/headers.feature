@@ -17,8 +17,8 @@ Feature: Headers
       """
       Content-Type: text/plain
       """
-    Then field "headers" is NOT valid
-    And Request or Response is NOT valid
+    Then field "headers" MUST NOT be valid
+    And Request or Response MUST NOT be valid
 
   @stable
   Scenario: Extra real header in real payload
@@ -30,8 +30,8 @@ Feature: Headers
       Location: /here
       ETag: 68b329da9893e34099c7d8ad5cb9c940
       """
-    Then field "headers" is valid
-    And Request or Response is valid
+    Then field "headers" MUST be valid
+    And Request or Response MUST be valid
 
   @stable
   Scenario: Content nogotiation significant header value is different in real payload
@@ -42,8 +42,8 @@ Feature: Headers
       Location: /here
       ETag: 68b329da9893e34099c7d8ad5cb9c940
       """
-    Then field "headers" is NOT valid
-    And Request or Response is NOT valid
+    Then field "headers" MUST NOT be valid
+    And Request or Response MUST NOT be valid
 
   @stable
   Scenario: Content negotiation not significant header value is different in real payload
@@ -54,7 +54,5 @@ Feature: Headers
       Location: /there
       ETag: something-completely-different
       """
-    Then field "headers" is valid
-    And Request or Response is valid
-
-
+    Then field "headers" MUST be valid
+    And Request or Response MUST be valid

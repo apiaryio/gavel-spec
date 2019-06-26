@@ -15,8 +15,8 @@ Feature: Body - text example
       One, two, three, four.
       Orange, strawberry, banana?
       """
-    Then field "body" is NOT valid
-    And Request or Response is NOT valid
+    Then field "body" MUST NOT be valid
+    And Request or Response MUST NOT be valid
 
   Scenario: Extra line in real payload textual body
     When real HTTP body is following:
@@ -26,8 +26,8 @@ Feature: Body - text example
       Orange, strawberry, banana?
       Dog, cat, mouse!
       """
-    Then field "body" is NOT valid
-    And Request or Response is NOT valid
+    Then field "body" MUST NOT be valid
+    And Request or Response MUST NOT be valid
 
   Scenario: Line is changed in real textual body
     When real HTTP body is following:
@@ -36,8 +36,8 @@ Feature: Body - text example
       Orange, strawberry, banana?
       Dog, cat, mouse!
       """
-    Then field "body" is NOT valid
-    And Request or Response is NOT valid
+    Then field "body" MUST NOT be valid
+    And Request or Response MUST NOT be valid
 
   Scenario: Text in body equals defined example
     When real HTTP body is following:
@@ -46,6 +46,5 @@ Feature: Body - text example
       Orange, strawberry, banana?
       Dog, cat, mouse!
       """
-    Then field "body" is valid
-    And Request or Response is valid
-
+    Then field "body" MUST valid
+    And Request or Response MUST valid

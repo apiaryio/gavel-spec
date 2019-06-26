@@ -6,11 +6,9 @@ Feature: Request validation
     """
     const gavel = require('gavel');
     """
-    And you define following HTTP request object:
+    And you define following expected HTTP request object:
     """
-    const real = {
-      "method": "GET",
-      "uri": "/ip",
+    const expected = {
       "headers": {
         "user-agent": "curl/7.24.0 (x86_64-apple-darwin12.0) libcurl/7.24.0 OpenSSL/0.9.8x zlib/1.2.5",
         "host": "httpbin.org",
@@ -19,9 +17,11 @@ Feature: Request validation
       "body": ""
     };
     """
-    And you define following expected HTTP request object:
+    And you define following HTTP request object:
     """
-    const expected = {
+    const actual = {
+      "method": "GET",
+      "uri": "/ip",
       "headers": {
         "user-agent": "curl/7.24.0 (x86_64-apple-darwin12.0) libcurl/7.24.0 OpenSSL/0.9.8x zlib/1.2.5",
         "host": "httpbin.org",
@@ -35,28 +35,38 @@ Feature: Request validation
   Scenario: validate
     When you call:
     """
-    gavel.validate(expected, real);
+    gavel.validate(expected, actual);
     """
     Then it will return:
     """
     {
-      isValid: true,
+      valid: true,
       fields: {
         headers: {
-          isValid: true,
+          valid: true,
+          kind: 'json',
+          values: {
+            expected: {
+              user-agent: 'curl/7.24.0 (x86_64-apple-darwin12.0) libcurl/7.24.0 OpenSSL/0.9.8x zlib/1.2.5',
+              host: 'httpbin.org',
+              accept: '*/*'
+            },
+            actual: {
+              user-agent: 'curl/7.24.0 (x86_64-apple-darwin12.0) libcurl/7.24.0 OpenSSL/0.9.8x zlib/1.2.5',
+              host: 'httpbin.org',
+              accept: '*/*'
+            },
+          },
           errors: [],
-          realType: 'application/vnd.apiary.http-headers+json',
-          expectedType: 'application/vnd.apiary.http-headers+json',
-          validator: 'HeadersJsonExample',
-          rawData: { length: 0 }
         },
         body: {
-          isValid: true,
+          valid: true,
+          kind: 'text',
+          values: {
+            expected: '',
+            actual: ''
+          },
           errors: [],
-          realType: 'text/plain',
-          expectedType: 'text/plain',
-          validator: 'TextDiff',
-          rawData: ''
         }
       }
     }

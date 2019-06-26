@@ -44,8 +44,8 @@ Feature: Body - JSON schema draft v4
       "string": "Hello World"
     }
     """
-    Then field "body" is valid
-    And Request or Response is valid
+    Then field "body" MUST be valid
+    And Request or Response MUST be valid
 
   Scenario: Payload body not valid against schema
     When real HTTP body is following:
@@ -58,5 +58,5 @@ Feature: Body - JSON schema draft v4
       "string": "Hello World"
     }
     """
-    Then field "body" is NOT valid
-    And Request or Response is NOT valid
+    Then field "body" MUST NOT be valid
+    And Request or Response MUST NOT be valid
