@@ -2,7 +2,7 @@
 Feature: Body - text example
 
   Background:
-    Given you define expected HTTP body using the following "textual example":
+    Given you expect "body" field to equal:
       """
       One, two, three, four.
       Orange, strawberry, banana?
@@ -10,41 +10,45 @@ Feature: Body - text example
       """
 
   Scenario: Line is missing in real payload body
-    When real HTTP body is following:
+    Given actual "body" field equals:
       """
       One, two, three, four.
       Orange, strawberry, banana?
       """
-    Then field "body" MUST NOT be valid
-    And Request or Response MUST NOT be valid
+    When Gavel validates HTTP message
+    Then field "body" is NOT valid
+    And HTTP message is NOT valid
 
   Scenario: Extra line in real payload textual body
-    When real HTTP body is following:
+    Given actual "body" field equals:
       """
       Red, green, blue...
       One, two, three, four.
       Orange, strawberry, banana?
       Dog, cat, mouse!
       """
-    Then field "body" MUST NOT be valid
-    And Request or Response MUST NOT be valid
+    When Gavel validates HTTP message
+    Then field "body" is NOT valid
+    And HTTP message is NOT valid
 
   Scenario: Line is changed in real textual body
-    When real HTTP body is following:
+    Given actual "body" field equals:
       """
       Red, green, blue...
       Orange, strawberry, banana?
       Dog, cat, mouse!
       """
-    Then field "body" MUST NOT be valid
-    And Request or Response MUST NOT be valid
+    When Gavel validates HTTP message
+    Then field "body" is NOT valid
+    And HTTP message is NOT valid
 
   Scenario: Text in body equals defined example
-    When real HTTP body is following:
+    Given actual "body" field equals:
       """
       One, two, three, four.
       Orange, strawberry, banana?
       Dog, cat, mouse!
       """
-    Then field "body" MUST valid
-    And Request or Response MUST valid
+    When Gavel validates HTTP message
+    Then field "body" is valid
+    And HTTP message is valid

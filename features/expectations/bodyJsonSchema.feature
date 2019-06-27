@@ -1,42 +1,38 @@
 @javascript @stable
-Feature: Body - JSON schema draft v3
+Feature: Body - JSON schema (draft v4)
 
   Background:
-    Given you define expected HTTP body using the following "JSON schema":
+    Given you expect "body" field to match the following "JSON schema":
     """
     {
       "type":"object",
-      "$schema": "http://json-schema.org/draft-03/schema",
-      "required":true,
+      "$schema": "http://json-schema.org/draft-04/schema",
+      "required": ["string"],
       "properties":{
         "object": {
           "type":"object",
-          "required":false,
+          "required": ["a", "c", "e"],
           "properties":{
             "a": {
-              "type":"string",
-              "required":true
+              "type":"string"
             },
             "c": {
-              "type":"string",
-              "required":true
+              "type":"string"
             },
             "e": {
-              "type":"string",
-              "required":true
+              "type":"string"
             }
           }
         },
         "string": {
-          "type":"string",
-          "required":true
+          "type":"string"
         }
       }
     }
     """
 
   Scenario: Payload body is valid against given schema
-    When real HTTP body is following:
+    Given actual "body" field equals:
     """
     {
       "object": {
@@ -47,11 +43,12 @@ Feature: Body - JSON schema draft v3
       "string": "Hello World"
     }
     """
-    Then field "body" MUST be valid
-    And Request or Response MUST be valid
+    When Gavel validates HTTP message
+    Then field "body" is valid
+    And HTTP message is valid
 
   Scenario: Payload body not valid against schema
-    When real HTTP body is following:
+    Given actual "body" field equals:
     """
     {
       "object": {
@@ -61,5 +58,6 @@ Feature: Body - JSON schema draft v3
       "string": "Hello World"
     }
     """
-    Then field "body" MUST NOT valid
-    And Request or Response MUST valid
+    When Gavel validates HTTP message
+    Then field "body" is NOT valid
+    And HTTP message is NOT valid

@@ -1,39 +1,31 @@
-@javascript @cli
+@cli @stable @javascript
 Feature: Command-line interface
-  
   Installation: `npm install -g gavel`
-  
 
   Background:
-    Given you record expected raw HTTP messages:
+    Given you record expected raw HTTP message:
     """
     curl -s --trace - http://httpbin.org/ip | curl-trace-parser > expected 
     """
-    And you record real raw HTTP messages:
+    And you record actual raw HTTP message:
     """
-    curl -s --trace - http://httpbin.org/ip | curl-trace-parser > real
+    curl -s --trace - http://httpbin.org/ip | curl-trace-parser > actual
     """ 
-  
-  @stable
-  Scenario: Read and validate real raw HTTP message from STDIN
 
+  Scenario: Read and validate actual raw HTTP message from STDIN
     When you validate the message using the following Gavel command:
     """
-    cat real | gavel expected
+    cat actual | gavel expected
     """
     Then exit status is 0
-  
-  @stable
+
   Scenario: Exit status for invalid message
-
-    When a header is missing in real messages:
+    When a header is missing in actual message:
     """
-    cat real | grep -v 'Access-Control-Allow-Origin' > real_without_cors
+    cat actual | grep -v 'Access-Control-Allow-Origin' > actual_without_cors
     """
-
     And you validate the message using the following Gavel command:
     """
-    cat real_without_cors | curl-trace-parser | gavel expected
+    cat actual_without_cors | curl-trace-parser | gavel expected
     """
-    
     Then exit status is 1

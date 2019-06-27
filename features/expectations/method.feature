@@ -1,15 +1,17 @@
 @javascript @stable
-Feature: Method
+Feature: method
 
   Background:
-    Given you expect HTTP message method "POST"
+    Given you expect "method" field to equal "POST"
 
   Scenario: HTTP message method match
-    When real HTTP message method is "POST"
-    Then field "method" MUST be valid
-    And Request or Response MUST be valid
+    Given actual "method" field equals "POST"
+    When Gavel validates HTTP message
+    Then field "method" is valid
+    And HTTP message is valid
 
   Scenario: Different HTTP message method
-    When real HTTP message method is "GET"
-    Then field "method" MUST NOT be valid
-    And Request or Response MUST NOT be valid
+    Given actual "method" field equals "GET"
+    When Gavel validates HTTP message
+    Then field "method" is NOT valid
+    And HTTP message is NOT valid
