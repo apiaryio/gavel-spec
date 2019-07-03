@@ -2,21 +2,21 @@
 Feature: Headers 
 
    Background:
-    Given you expect "headers" field to equal:
+    Given you expect field "headers" to equal:
     """
     Accept: text/plain
     Content-Type: application/json
     """
 
   Scenario: Matching headers
-    Given actual "headers" field equals:
+    Given actual field "headers" equals:
     """
     Accept: text/plain
     Content-Type: application/json
     """
     When Gavel validates HTTP message
     Then HTTP message is valid
-    And field "headers" equals:
+    And result field "headers" equals:
     """
     {
       "valid": true,
@@ -36,13 +36,13 @@ Feature: Headers
     """
 
   Scenario: Missing header
-    Given actual "headers" field equals:
+    Given actual field "headers" equals:
     """
     Accept: text/plain
     """
     When Gavel validates HTTP message
     Then HTTP message is NOT valid
-    And field "headers" equals:
+    And result field "headers" equals:
     """
     {
       "valid": false,
@@ -58,15 +58,18 @@ Feature: Headers
       },
       "errors": [
         {
-          "pointer": "/content-type",
-          "message": "At '/content-type' Missing required property: content-type"
+          "message": "At '/content-type' Missing required property: content-type",
+          "location": {
+            "pointer": "/content-type",
+            "property": ["content-type"]
+          }
         }
       ]
     }
     """
 
   Scenario: Extra header
-    Given actual "headers" field equals:
+    Given actual field "headers" equals:
     """
     Accept: text/plain
     Accept-Language: en-US
@@ -74,7 +77,7 @@ Feature: Headers
     """
     When Gavel validates HTTP message
     Then HTTP message is VALID
-    And field "headers" equals:
+    And result field "headers" equals:
     """
     {
       "valid": true,
@@ -95,13 +98,13 @@ Feature: Headers
     """
 
   Scenario: Non-matching headers
-    Given actual "headers" field equals:
+    Given actual field "headers" equals:
     """
     Content-Encoding: gzip
     """
     When Gavel validates HTTP message
     Then HTTP message is NOT valid
-    And field "headers" equals:
+    And result field "headers" equals:
     """
     {
       "valid": false,
@@ -117,12 +120,18 @@ Feature: Headers
       },
       "errors": [
         {
-          "pointer": "/accept",
-          "message": "At '/accept' Missing required property: accept"
+          "message": "At '/accept' Missing required property: accept",
+          "location": {
+            "pointer": "/accept",
+            "property": ["accept"]
+          }
         },
         {
-          "pointer": "/content-type",
-          "message": "At '/content-type' Missing required property: content-type"
+          "message": "At '/content-type' Missing required property: content-type",
+          "location": {
+            "pointer": "/content-type",
+            "property": ["content-type"]
+          }
         }
       ]
     }

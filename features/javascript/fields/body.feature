@@ -2,7 +2,7 @@
 Feature: Body validation
 
   Background:
-    Given you expect "body" field to equal:
+    Given you expect field "body" to equal:
     """
     {
       "firstName": "John",
@@ -11,7 +11,7 @@ Feature: Body validation
     """
 
   Scenario: Matching body
-    Given actual "body" field equals:
+    Given actual field "body" equals:
     """
     {
       "firstName": "John",
@@ -20,7 +20,7 @@ Feature: Body validation
     """
     When Gavel validates HTTP message
     Then HTTP message is valid
-    And field "body" equals:
+    And result field "body" equals:
     """
     {
       "valid": true,
@@ -34,7 +34,7 @@ Feature: Body validation
     """
 
   Scenario: Non-matching body
-    Given actual "body" field equals:
+    Given actual field "body" equals:
     """
     {
       "firstName": "John"
@@ -42,7 +42,7 @@ Feature: Body validation
     """
     When Gavel validates HTTP message
     Then HTTP message is NOT valid
-    And field "body" equals:
+    And result field "body" equals:
     """
     {
       "valid": false,
@@ -53,8 +53,11 @@ Feature: Body validation
       },
       "errors": [
         {
-          "pointer": "/lastName",
-          "message": "At '/lastName' Missing required property: lastName"
+          "message": "At '/lastName' Missing required property: lastName",
+          "location": {
+            "pointer": "/lastName",
+            "property": ["lastName"]
+          }
         }
       ]
     }
@@ -63,13 +66,13 @@ Feature: Body validation
   # Comparing JSON to plain text produces a validation error
   # and returns "null" kind, indicating no validation has happened.
   Scenario: Other body type
-    Given actual "body" field equals:
+    Given actual field "body" equals:
     """
     Textual body
     """
     When Gavel validates HTTP message
     Then HTTP message is NOT valid
-    And field "body" equals:
+    And result field "body" equals:
     """
     {
       "valid": false,
@@ -93,11 +96,11 @@ Feature: Body validation
     # Comparing text to JSON produces a validation error
     # and "kind: null" stating that no validation has happened.
     Scenario: Text vs JSON
-      Given you expect "body" field to equal:
+      Given you expect field "body" to equal:
       """
       Textual body
       """
-      And actual "body" field equals:
+      And actual field "body" equals:
       """
       {
         "userId": 1
@@ -105,7 +108,7 @@ Feature: Body validation
       """
       When Gavel validates HTTP message
       Then HTTP message is NOT valid
-      And field "body" equals:
+      And result field "body" equals:
       """
       {
         "valid": false,

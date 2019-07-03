@@ -2,7 +2,7 @@
 Feature: Body - JSON example
 
   Background:
-    Given you expect "body" field to equal:
+    Given you expect field "body" to equal:
     """
     {
       "object": {
@@ -19,7 +19,7 @@ Feature: Body - JSON example
     """
 
   Scenario: Key is missing in actual payload JSON body
-    Given actual "body" field equals:
+    Given actual field "body" equals:
     """
     {
       "object": {
@@ -34,11 +34,11 @@ Feature: Body - JSON example
     }
     """
     When Gavel validates HTTP message
-    Then field "body" is NOT valid
-    And HTTP message is NOT valid
+    Then HTTP message is NOT valid
+    And result field "body" is NOT valid
 
   Scenario: Extra key in actual JSON body
-    Given actual "body" field equals:
+    Given actual field "body" equals:
     """
     {
       "object": {
@@ -55,11 +55,11 @@ Feature: Body - JSON example
     }
     """
     When Gavel validates HTTP message
-    Then field "body" is valid
-    And HTTP message is valid
+    Then HTTP message is valid
+    And result field "body" is valid
 
   Scenario: Different values in actual JSON body
-    Given actual "body" field equals:
+    Given actual field "body" equals:
     """
     {
       "object": {
@@ -76,11 +76,11 @@ Feature: Body - JSON example
     }
     """
     When Gavel validates HTTP message
-    Then field "body" is valid
-    And HTTP message is valid
+    Then HTTP message is valid
+    And result field "body" is valid
 
   Scenario: Extra array member in actual JSON body
-    Given actual "body" field equals:
+    Given actual field "body" equals:
     """
     {
       "object": {
@@ -97,5 +97,5 @@ Feature: Body - JSON example
     }
     """
     When Gavel validates HTTP message
-    Then field "body" is valid
-    And HTTP message is valid
+    Then HTTP message is valid
+    And result field "body" is valid
