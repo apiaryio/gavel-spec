@@ -2,7 +2,7 @@
 Feature: Body - JSON schema (draft v3)
 
   Background:
-    Given you expect field "body" to match the following "JSON schema":
+    Given you expect "body" to match the following "JSON schema":
     """
     {
       "type":"object",
@@ -36,7 +36,7 @@ Feature: Body - JSON schema (draft v3)
     """
 
   Scenario: Payload body is valid against given schema
-    Given actual field "body" equals:
+    Given the actual "body" equals:
     """
     {
       "object": {
@@ -47,12 +47,12 @@ Feature: Body - JSON schema (draft v3)
       "string": "Hello World"
     }
     """
-    When Gavel validates HTTP message
-    Then HTTP message is valid
-    And result field "body" is valid
+    When Gavel validates the HTTP message
+    Then the actual HTTP message is valid
+    And the "body" is valid
 
   Scenario: Payload body not valid against schema
-    Given actual field "body" equals:
+    Given the actual "body" equals:
     """
     {
       "object": {
@@ -62,6 +62,6 @@ Feature: Body - JSON schema (draft v3)
       "string": "Hello World"
     }
     """
-    When Gavel validates HTTP message
-    Then HTTP message is NOT valid
-    And result field "body" is NOT valid
+    When Gavel validates the HTTP message
+    Then the actual HTTP message is NOT valid
+    And the "body" is NOT valid

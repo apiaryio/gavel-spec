@@ -2,13 +2,13 @@
 Feature: Method validation
 
   Background:
-    Given you expect field "method" to equal "POST"
+    Given you expect "method" to be "POST"
 
   Scenario: Matching method
-    Given actual field "method" equals "POST"
-    When Gavel validates HTTP message
-    Then HTTP message is valid
-    And result field "method" equals:
+    Given the actual "method" is "POST"
+    When Gavel validates the HTTP message
+    Then the actual HTTP message is valid
+    And the result field "method" equals:
     """
     {
       "valid": true,
@@ -22,10 +22,10 @@ Feature: Method validation
     """
 
   Scenario: Non-matching method
-    Given actual field "method" equals "PUT"
-    When Gavel validates HTTP message
-    Then HTTP message is NOT valid
-    And result field "method" equals:
+    Given the actual "method" is "PUT"
+    When Gavel validates the HTTP message
+    Then the actual HTTP message is NOT valid
+    And the result field "method" equals:
     """
     {
       "valid": false,

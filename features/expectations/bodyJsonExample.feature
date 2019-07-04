@@ -2,7 +2,7 @@
 Feature: Body - JSON example
 
   Background:
-    Given you expect field "body" to equal:
+    Given you expect "body" to equal:
     """
     {
       "object": {
@@ -19,7 +19,7 @@ Feature: Body - JSON example
     """
 
   Scenario: Key is missing in actual payload JSON body
-    Given actual field "body" equals:
+    Given the actual "body" equals:
     """
     {
       "object": {
@@ -33,12 +33,12 @@ Feature: Body - JSON example
       "string": "Hello World"
     }
     """
-    When Gavel validates HTTP message
-    Then HTTP message is NOT valid
-    And result field "body" is NOT valid
+    When Gavel validates the HTTP message
+    Then the actual HTTP message is NOT valid
+    And the "body" is NOT valid
 
   Scenario: Extra key in actual JSON body
-    Given actual field "body" equals:
+    Given the actual "body" equals:
     """
     {
       "object": {
@@ -54,12 +54,12 @@ Feature: Body - JSON example
       "boolean": true
     }
     """
-    When Gavel validates HTTP message
-    Then HTTP message is valid
-    And result field "body" is valid
+    When Gavel validates the HTTP message
+    Then the actual HTTP message is valid
+    And the "body" is valid
 
   Scenario: Different values in actual JSON body
-    Given actual field "body" equals:
+    Given the actual "body" equals:
     """
     {
       "object": {
@@ -75,12 +75,12 @@ Feature: Body - JSON example
       "boolean": false
     }
     """
-    When Gavel validates HTTP message
-    Then HTTP message is valid
-    And result field "body" is valid
+    When Gavel validates the HTTP message
+    Then the actual HTTP message is valid
+    And the "body" is valid
 
   Scenario: Extra array member in actual JSON body
-    Given actual field "body" equals:
+    Given the actual "body" equals:
     """
     {
       "object": {
@@ -96,6 +96,6 @@ Feature: Body - JSON example
       "string": "Foo bar"
     }
     """
-    When Gavel validates HTTP message
-    Then HTTP message is valid
-    And result field "body" is valid
+    When Gavel validates the HTTP message
+    Then the actual HTTP message is valid
+    And the "body" is valid

@@ -2,13 +2,13 @@
 Feature: URI validation
 
   Background:
-    Given you expect field "uri" to equal "/user?id=1"
+    Given you expect "uri" to be "/user?id=1"
 
   Scenario: Matching URI
-    Given actual field "uri" equals "/user?id=1"
-    When Gavel validates HTTP message
-    Then HTTP message is valid
-    And result field "uri" equals:
+    Given the actual "uri" is "/user?id=1"
+    When Gavel validates the HTTP message
+    Then the actual HTTP message is valid
+    And the result field "uri" equals:
     """
     {
       "valid": true,
@@ -22,10 +22,10 @@ Feature: URI validation
     """
 
   Scenario: Non-matching URI
-    Given actual field "uri" equals "/user?id=2"
-    When Gavel validates HTTP message
-    Then HTTP message is NOT valid
-    And result field "uri" equals:
+    Given the actual "uri" is "/user?id=2"
+    When Gavel validates the HTTP message
+    Then the actual HTTP message is NOT valid
+    And the result field "uri" equals:
     """
     {
       "valid": false,

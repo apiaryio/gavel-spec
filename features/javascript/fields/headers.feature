@@ -1,22 +1,22 @@
 @javascript @stable
-Feature: Headers 
+Feature: Headers validation
 
    Background:
-    Given you expect field "headers" to equal:
+    Given you expect "headers" to equal:
     """
     Accept: text/plain
     Content-Type: application/json
     """
 
   Scenario: Matching headers
-    Given actual field "headers" equals:
+    Given the actual "headers" equals:
     """
     Accept: text/plain
     Content-Type: application/json
     """
-    When Gavel validates HTTP message
-    Then HTTP message is valid
-    And result field "headers" equals:
+    When Gavel validates the HTTP message
+    Then the actual HTTP message is valid
+    And the result field "headers" equals:
     """
     {
       "valid": true,
@@ -36,13 +36,13 @@ Feature: Headers
     """
 
   Scenario: Missing header
-    Given actual field "headers" equals:
+    Given the actual "headers" equals:
     """
     Accept: text/plain
     """
-    When Gavel validates HTTP message
-    Then HTTP message is NOT valid
-    And result field "headers" equals:
+    When Gavel validates the HTTP message
+    Then the actual HTTP message is NOT valid
+    And the result field "headers" equals:
     """
     {
       "valid": false,
@@ -69,15 +69,15 @@ Feature: Headers
     """
 
   Scenario: Extra header
-    Given actual field "headers" equals:
+    Given the actual "headers" equals:
     """
     Accept: text/plain
     Accept-Language: en-US
     Content-Type: application/json
     """
-    When Gavel validates HTTP message
-    Then HTTP message is VALID
-    And result field "headers" equals:
+    When Gavel validates the HTTP message
+    Then the actual HTTP message is valid
+    And the result field "headers" equals:
     """
     {
       "valid": true,
@@ -98,13 +98,13 @@ Feature: Headers
     """
 
   Scenario: Non-matching headers
-    Given actual field "headers" equals:
+    Given the actual "headers" equals:
     """
     Content-Encoding: gzip
     """
-    When Gavel validates HTTP message
-    Then HTTP message is NOT valid
-    And result field "headers" equals:
+    When Gavel validates the HTTP message
+    Then the actual HTTP message is NOT valid
+    And the result field "headers" equals:
     """
     {
       "valid": false,

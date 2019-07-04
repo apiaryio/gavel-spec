@@ -2,17 +2,17 @@
 Feature: statusCode
 
   Background:
-    Given you expect field "statusCode" to equal "200"
+    Given you expect "statusCode" to be "200"
 
   Scenario: Response status code match
-    Given actual field "statusCode" equals "200"
-    When Gavel validates HTTP message
-    Then HTTP message is valid
-    And result field "statusCode" is valid
+    Given the actual "statusCode" is "200"
+    When Gavel validates the HTTP message
+    Then the actual HTTP message is valid
+    And the "statusCode" is valid
 
   Scenario: Response status code is different
-    Given actual field "statusCode" equals "500"
-    When Gavel validates HTTP message
-    Then HTTP message is NOT valid
-    And result field "statusCode" is NOT valid
+    Given the actual "statusCode" is "500"
+    When Gavel validates the HTTP message
+    Then the actual HTTP message is NOT valid
+    And the "statusCode" is NOT valid
  

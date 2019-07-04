@@ -2,7 +2,7 @@
 Feature: Body validation using JSON Schema (V4)
 
   Background:
-    Given you expect field "body" to match the following "JSON Schema":
+    Given you expect "body" to match the following "JSON Schema":
     """
     {
       "type": "object",
@@ -38,7 +38,7 @@ Feature: Body validation using JSON Schema (V4)
     """
 
   Scenario: With body matching the schema
-    Given actual field "body" equals:
+    Given the actual "body" equals:
     """
     {
       "version": "stable",
@@ -51,9 +51,9 @@ Feature: Body validation using JSON Schema (V4)
       }
     }
     """
-    When Gavel validates HTTP message
-    Then HTTP message is valid
-    And result field "body" equals:
+    When Gavel validates the HTTP message
+    Then the actual HTTP message is valid
+    And the result field "body" equals:
     """
     {
       "valid": true,
@@ -66,7 +66,7 @@ Feature: Body validation using JSON Schema (V4)
     """
 
   Scenario: With missing required properties
-    Given actual field "body" equals:
+    Given the actual "body" equals:
     """
     {
       "permissions": {
@@ -78,9 +78,9 @@ Feature: Body validation using JSON Schema (V4)
       }
     }
     """
-    When Gavel validates HTTP message
-    Then HTTP message is NOT valid
-    And result field "body" equals:
+    When Gavel validates the HTTP message
+    Then the actual HTTP message is NOT valid
+    And the result field "body" equals:
     """
     {
       "valid": false,

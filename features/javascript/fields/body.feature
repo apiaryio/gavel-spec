@@ -2,7 +2,7 @@
 Feature: Body validation
 
   Background:
-    Given you expect field "body" to equal:
+    Given you expect "body" to equal:
     """
     {
       "firstName": "John",
@@ -11,16 +11,16 @@ Feature: Body validation
     """
 
   Scenario: Matching body
-    Given actual field "body" equals:
+    Given the actual "body" equals:
     """
     {
       "firstName": "John",
       "lastName": "Locke"
     }
     """
-    When Gavel validates HTTP message
-    Then HTTP message is valid
-    And result field "body" equals:
+    When Gavel validates the HTTP message
+    Then the actual HTTP message is valid
+    And the result field "body" equals:
     """
     {
       "valid": true,
@@ -34,15 +34,15 @@ Feature: Body validation
     """
 
   Scenario: Non-matching body
-    Given actual field "body" equals:
+    Given the actual "body" equals:
     """
     {
       "firstName": "John"
     }
     """
-    When Gavel validates HTTP message
-    Then HTTP message is NOT valid
-    And result field "body" equals:
+    When Gavel validates the HTTP message
+    Then the actual HTTP message is NOT valid
+    And the result field "body" equals:
     """
     {
       "valid": false,
@@ -66,13 +66,13 @@ Feature: Body validation
   # Comparing JSON to plain text produces a validation error
   # and returns "null" kind, indicating no validation has happened.
   Scenario: Other body type
-    Given actual field "body" equals:
+    Given the actual "body" equals:
     """
     Textual body
     """
-    When Gavel validates HTTP message
-    Then HTTP message is NOT valid
-    And result field "body" equals:
+    When Gavel validates the HTTP message
+    Then the actual HTTP message is NOT valid
+    And the result field "body" equals:
     """
     {
       "valid": false,
@@ -96,19 +96,19 @@ Feature: Body validation
     # Comparing text to JSON produces a validation error
     # and "kind: null" stating that no validation has happened.
     Scenario: Text vs JSON
-      Given you expect field "body" to equal:
+      Given you expect "body" to equal:
       """
       Textual body
       """
-      And actual field "body" equals:
+      And the actual "body" equals:
       """
       {
         "userId": 1
       }
       """
-      When Gavel validates HTTP message
-      Then HTTP message is NOT valid
-      And result field "body" equals:
+      When Gavel validates the HTTP message
+      Then the actual HTTP message is NOT valid
+      And the result field "body" equals:
       """
       {
         "valid": false,

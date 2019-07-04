@@ -2,13 +2,13 @@
 Feature: Status code validation
 
   Background:
-    Given you expect field "statusCode" to equal "200"
+    Given you expect "statusCode" to be "200"
 
   Scenario: Matching status code
-    Given actual field "statusCode" equals "200"
-    When Gavel validates HTTP message
-    Then HTTP message is valid
-    And result field "statusCode" equals:
+    Given the actual "statusCode" is "200"
+    When Gavel validates the HTTP message
+    Then the actual HTTP message is valid
+    And the result field "statusCode" equals:
     """
     {
       "valid": true,
@@ -22,10 +22,10 @@ Feature: Status code validation
     """
 
   Scenario: Non-matching status code
-    Given actual field "statusCode" equals "304"
-    When Gavel validates HTTP message
-    Then HTTP message is NOT valid
-    And result field "statusCode" equals:
+    Given the actual "statusCode" is "304"
+    When Gavel validates the HTTP message
+    Then the actual HTTP message is NOT valid
+    And the result field "statusCode" equals:
     """
     {
       "valid": false,

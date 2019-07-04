@@ -14,7 +14,7 @@ Feature: validate
       "body": ""
     }
     """
-    And actual HTTP Request is:
+    And the actual HTTP Request equals:
     """
     {
       "method": "POST",
@@ -27,7 +27,7 @@ Feature: validate
       "body": ""
     }
     """
-    When Gavel validates HTTP message
+    When Gavel validates the HTTP message
     # When you call:
     # """
     # gavel.validate(expectedRequest, actualRequest)
@@ -91,7 +91,7 @@ Feature: validate
     "body": "{\n  \"origin\": \"94.113.241.2\"\n}"
   }
   """
-  And actual HTTP Response is:
+  And the actual HTTP Response equals:
   """
   {
     "statusCode": "200",
@@ -105,7 +105,7 @@ Feature: validate
     "body": "{\n  \"origin\": \"94.113.241.2\"\n}"
   }
   """
-  When Gavel validates HTTP message
+  When Gavel validates the HTTP message
   # When you call:
   # """
   # gavel.validate(expectedResponse, actualResponse)
