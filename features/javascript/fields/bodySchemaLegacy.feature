@@ -1,5 +1,5 @@
 @javascript @stable
-Feature: Body validation using JSON Schema (V3)
+Feature: Body validation using JSON Schema (draft v3)
 
   Background:
     Given you expect "body" to match the following "JSON Schema":

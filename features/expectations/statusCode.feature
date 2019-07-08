@@ -1,10 +1,10 @@
 @javascript @stable
-Feature: statusCode
+Feature: Status code
 
   Background:
     Given you expect "statusCode" to be "200"
 
-  Scenario: Response status code match
+  Scenario: Response status code matches
     Given the actual "statusCode" is "200"
     When Gavel validates the HTTP message
     Then the actual HTTP message is valid

@@ -1,5 +1,5 @@
 @javascript @stable
-Feature: method
+Feature: Method
 
   Background:
     Given you expect "method" to be "POST"
