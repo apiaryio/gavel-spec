@@ -1,4 +1,4 @@
-@javascript @stable
+@javascript
 Feature: Body - text example
 
   Background:

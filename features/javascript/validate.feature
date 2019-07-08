@@ -1,4 +1,4 @@
-@stable @javascript
+@javascript
 Feature: validate
 
   Scenario: HTTP Request

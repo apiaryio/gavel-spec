@@ -23,7 +23,6 @@ If you get lost, don't hesitate to ask in [issues][] or inspect [existing implem
 
 -   **General tags**
 
-    - **@stable** - Stable API or behavior, MUST be implemented
     - **@proposal** - Proposal for stabilization, SHOULD be implemented
     - **@draft** - Feature sketch, thoughts aggregation, MAY be implemented
 

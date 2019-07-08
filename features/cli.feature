@@ -1,4 +1,4 @@
-@cli @stable @javascript
+@cli @javascript
 Feature: Command-line interface
   Installation: `npm install -g gavel`
 

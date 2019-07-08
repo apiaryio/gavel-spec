@@ -1,4 +1,4 @@
-@javascript @stable
+@javascript
 Feature: Body validation using JSON Schema (draft v3)
 
   Background:

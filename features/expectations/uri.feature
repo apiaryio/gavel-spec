@@ -1,4 +1,4 @@
-@javascript @stable
+@javascript
 Feature: URI
 
   Scenario: Matching HTTP message URI
