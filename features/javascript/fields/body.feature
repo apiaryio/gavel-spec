@@ -2,7 +2,7 @@
 Feature: Body validation
 
   Background:
-    Given you expect "body" to equal:
+    Given I expect "body" to equal:
     """
     {
       "firstName": "John",
@@ -96,7 +96,7 @@ Feature: Body validation
     # Comparing text to JSON produces a validation error
     # and "kind: null" stating that no validation has happened.
     Scenario: Text vs JSON
-      Given you expect "body" to equal:
+      Given I expect "body" to equal:
       """
       Textual body
       """

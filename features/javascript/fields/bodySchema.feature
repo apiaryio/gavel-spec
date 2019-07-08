@@ -2,7 +2,7 @@
 Feature: Body validation using JSON Schema (draft v4)
 
   Background:
-    Given you expect "body" to match the following "JSON Schema":
+    Given I expect "body" to match the following "JSON Schema":
     """
     {
       "type": "object",

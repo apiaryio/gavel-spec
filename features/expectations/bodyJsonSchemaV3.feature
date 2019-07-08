@@ -2,7 +2,7 @@
 Feature: Body - JSON schema (draft v3)
 
   Background:
-    Given you expect "body" to match the following "JSON schema":
+    Given I expect "body" to match the following "JSON schema":
     """
     {
       "type":"object",

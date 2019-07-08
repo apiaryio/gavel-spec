@@ -2,7 +2,7 @@
 Feature: Body - JSON example
 
   Background:
-    Given you expect "body" to equal:
+    Given I expect "body" to equal:
     """
     {
       "object": {

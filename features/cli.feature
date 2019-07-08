@@ -3,17 +3,17 @@ Feature: Command-line interface
   Installation: `npm install -g gavel`
 
   Background:
-    Given you record expected raw HTTP message:
+    Given I record expected raw HTTP message:
     """
     curl -s --trace - http://httpbin.org/ip | curl-trace-parser > expected 
     """
-    And you record actual raw HTTP message:
+    And I record actual raw HTTP message:
     """
     curl -s --trace - http://httpbin.org/ip | curl-trace-parser > actual
     """ 
 
   Scenario: Read and validate actual raw HTTP message from STDIN
-    When you validate the message using the following Gavel command:
+    When I validate the message using the following Gavel command:
     """
     cat actual | gavel expected
     """
@@ -24,7 +24,7 @@ Feature: Command-line interface
     """
     cat actual | grep -v 'Access-Control-Allow-Origin' > actual_without_cors
     """
-    And you validate the message using the following Gavel command:
+    And I validate the message using the following Gavel command:
     """
     cat actual_without_cors | curl-trace-parser | gavel expected
     """

@@ -2,7 +2,7 @@
 Feature: URI validation
 
   Background:
-    Given you expect "uri" to be "/user?id=1"
+    Given I expect "uri" to be "/user?id=1"
 
   Scenario: Matching URI
     Given the actual "uri" is "/user?id=1"

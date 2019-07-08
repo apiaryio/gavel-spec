@@ -2,7 +2,7 @@
 Feature: validate
 
   Scenario: HTTP Request
-    Given you expect the following HTTP Request:
+    Given I expect the following HTTP Request:
     """
     {
       "method": "POST",
@@ -77,7 +77,7 @@ Feature: validate
     """
 
   Scenario: HTTP Response
-  Given you expect the following HTTP Response:
+  Given I expect the following HTTP Response:
   """
   {
     "statusCode": "200",

@@ -2,7 +2,7 @@
 Feature: Method validation
 
   Background:
-    Given you expect "method" to be "POST"
+    Given I expect "method" to be "POST"
 
   Scenario: Matching method
     Given the actual "method" is "POST"

@@ -2,7 +2,7 @@
 Feature: Body - text example
 
   Background:
-    Given you expect "body" to equal:
+    Given I expect "body" to equal:
       """
       One, two, three, four.
       Orange, strawberry, banana?

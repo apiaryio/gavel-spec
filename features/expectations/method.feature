@@ -2,7 +2,7 @@
 Feature: Method
 
   Background:
-    Given you expect "method" to be "POST"
+    Given I expect "method" to be "POST"
 
   Scenario: HTTP message method match
     Given the actual "method" is "POST"

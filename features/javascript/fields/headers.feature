@@ -2,7 +2,7 @@
 Feature: Headers validation
 
    Background:
-    Given you expect "headers" to equal:
+    Given I expect "headers" to equal:
     """
     Accept: text/plain
     Content-Type: application/json

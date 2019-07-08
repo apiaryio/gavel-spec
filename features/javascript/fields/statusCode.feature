@@ -2,7 +2,7 @@
 Feature: Status code validation
 
   Background:
-    Given you expect "statusCode" to be "200"
+    Given I expect "statusCode" to be "200"
 
   Scenario: Matching status code
     Given the actual "statusCode" is "200"
