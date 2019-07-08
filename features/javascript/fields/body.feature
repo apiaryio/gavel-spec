@@ -63,9 +63,11 @@ Feature: Body validation
     }
     """
 
-  # Comparing JSON to plain text produces a validation error
-  # and returns "null" kind, indicating no validation has happened.
   Scenario: Other body type
+
+    Comparing JSON to plain text produces a validation error
+    and returns "null" kind, indicating no validation has happened.
+
     Given the actual "body" equals:
     """
     Textual body
@@ -93,9 +95,11 @@ Feature: Body validation
     }
     """
 
-    # Comparing text to JSON produces a validation error
-    # and "kind: null" stating that no validation has happened.
     Scenario: Text vs JSON
+
+      Comparing text to JSON produces a validation error
+      and "kind: null", meaning that no validation has happened.
+
       Given I expect "body" to equal:
       """
       Textual body
