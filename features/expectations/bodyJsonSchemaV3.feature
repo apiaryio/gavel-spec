@@ -1,8 +1,8 @@
-@javascript @stable
-Feature: Body - JSON schema draft v3
+@javascript
+Feature: Body - JSON schema (draft v3)
 
   Background:
-    Given you define expected HTTP body using the following "JSON schema":
+    Given I expect "body" to match the following "JSON schema":
     """
     {
       "type":"object",
@@ -36,7 +36,7 @@ Feature: Body - JSON schema draft v3
     """
 
   Scenario: Payload body is valid against given schema
-    When real HTTP body is following:
+    Given the actual "body" equals:
     """
     {
       "object": {
@@ -47,11 +47,12 @@ Feature: Body - JSON schema draft v3
       "string": "Hello World"
     }
     """
-    Then field "body" is valid
-    And Request or Response is valid
+    When Gavel validates the HTTP message
+    Then the actual HTTP message is valid
+    And the "body" is valid
 
   Scenario: Payload body not valid against schema
-    When real HTTP body is following:
+    Given the actual "body" equals:
     """
     {
       "object": {
@@ -61,5 +62,6 @@ Feature: Body - JSON schema draft v3
       "string": "Hello World"
     }
     """
-    Then field "body" is NOT valid
-    And Request or Response is NOT valid
+    When Gavel validates the HTTP message
+    Then the actual HTTP message is NOT valid
+    And the "body" is NOT valid

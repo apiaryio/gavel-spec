@@ -1,8 +1,8 @@
-@javascript @stable
+@javascript
 Feature: Body - JSON example
 
   Background:
-    Given you define expected HTTP body using the following "JSON example":
+    Given I expect "body" to equal:
     """
     {
       "object": {
@@ -18,8 +18,8 @@ Feature: Body - JSON example
     }
     """
 
-  Scenario: Key is missing in real payload JSON body
-    When real HTTP body is following:
+  Scenario: Key is missing in actual payload JSON body
+    Given the actual "body" equals:
     """
     {
       "object": {
@@ -33,11 +33,12 @@ Feature: Body - JSON example
       "string": "Hello World"
     }
     """
-    Then field "body" is NOT valid
-    And Request or Response is NOT valid
+    When Gavel validates the HTTP message
+    Then the actual HTTP message is NOT valid
+    And the "body" is NOT valid
 
-  Scenario: Extra key in real JSON body
-    When real HTTP body is following:
+  Scenario: Extra key in actual JSON body
+    Given the actual "body" equals:
     """
     {
       "object": {
@@ -53,11 +54,12 @@ Feature: Body - JSON example
       "boolean": true
     }
     """
-    Then field "body" is valid
-    And Request or Response is valid
+    When Gavel validates the HTTP message
+    Then the actual HTTP message is valid
+    And the "body" is valid
 
-  Scenario: Different values in real JSON body
-    When real HTTP body is following:
+  Scenario: Different values in actual JSON body
+    Given the actual "body" equals:
     """
     {
       "object": {
@@ -73,11 +75,12 @@ Feature: Body - JSON example
       "boolean": false
     }
     """
-    Then field "body" is valid
-    And Request or Response is valid
+    When Gavel validates the HTTP message
+    Then the actual HTTP message is valid
+    And the "body" is valid
 
-  Scenario: Extra array member in real JSON body
-    When real HTTP body is following:
+  Scenario: Extra array member in actual JSON body
+    Given the actual "body" equals:
     """
     {
       "object": {
@@ -93,6 +96,6 @@ Feature: Body - JSON example
       "string": "Foo bar"
     }
     """
-    Then field "body" is valid
-    And Request or Response is valid
-
+    When Gavel validates the HTTP message
+    Then the actual HTTP message is valid
+    And the "body" is valid

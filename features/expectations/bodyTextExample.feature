@@ -1,8 +1,8 @@
-@javascript @stable
+@javascript
 Feature: Body - text example
 
   Background:
-    Given you define expected HTTP body using the following "textual example":
+    Given I expect "body" to equal:
       """
       One, two, three, four.
       Orange, strawberry, banana?
@@ -10,42 +10,45 @@ Feature: Body - text example
       """
 
   Scenario: Line is missing in real payload body
-    When real HTTP body is following:
+    Given the actual "body" equals:
       """
       One, two, three, four.
       Orange, strawberry, banana?
       """
-    Then field "body" is NOT valid
-    And Request or Response is NOT valid
+    When Gavel validates the HTTP message
+    Then the actual HTTP message is NOT valid
+    And the "body" is NOT valid
 
   Scenario: Extra line in real payload textual body
-    When real HTTP body is following:
+    Given the actual "body" equals:
       """
       Red, green, blue...
       One, two, three, four.
       Orange, strawberry, banana?
       Dog, cat, mouse!
       """
-    Then field "body" is NOT valid
-    And Request or Response is NOT valid
+    When Gavel validates the HTTP message
+    Then the actual HTTP message is NOT valid
+    And the "body" is NOT valid
 
   Scenario: Line is changed in real textual body
-    When real HTTP body is following:
+    Given the actual "body" equals:
       """
       Red, green, blue...
       Orange, strawberry, banana?
       Dog, cat, mouse!
       """
-    Then field "body" is NOT valid
-    And Request or Response is NOT valid
+    When Gavel validates the HTTP message
+    Then the actual HTTP message is NOT valid
+    And the "body" is NOT valid
 
   Scenario: Text in body equals defined example
-    When real HTTP body is following:
+    Given the actual "body" equals:
       """
       One, two, three, four.
       Orange, strawberry, banana?
       Dog, cat, mouse!
       """
-    Then field "body" is valid
-    And Request or Response is valid
-
+    When Gavel validates the HTTP message
+    Then the actual HTTP message is valid
+    And the "body" is valid
