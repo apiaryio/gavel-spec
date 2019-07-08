@@ -27,11 +27,7 @@ Feature: validate
       "body": ""
     }
     """
-    When Gavel validates the HTTP message
-    # When you call:
-    # """
-    # gavel.validate(expectedRequest, actualRequest)
-    # """
+    When I call "gavel.validate(expectedRequest, actualRequest)"
     Then the validation result is:
     """
     {
@@ -105,11 +101,7 @@ Feature: validate
     "body": "{\n  \"origin\": \"94.113.241.2\"\n}"
   }
   """
-  When Gavel validates the HTTP message
-  # When you call:
-  # """
-  # gavel.validate(expectedResponse, actualResponse)
-  # """
+  When I call "gavel.validate(expectedResponse, actualResponse)"
   Then the validation result is:
   """
   {
