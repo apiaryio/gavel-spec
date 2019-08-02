@@ -36,11 +36,7 @@ Feature: URI validation
       },
       "errors": [
         {
-          "message": "Expected URI '/user?id=1', but got '/user?id=2'.",
-          "values": {
-             "expected": "/user?id=1",
-             "actual": "/user?id=2"
-          }
+          "message": "Expected URI '/user?id=1', but got '/user?id=2'."
         }
       ]
     }

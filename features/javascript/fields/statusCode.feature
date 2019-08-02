@@ -36,11 +36,7 @@ Feature: Status code validation
       },
       "errors": [
         {
-          "message": "Expected status code '200', but got '304'.",
-          "values": {
-            "expected": "200",
-            "actual": "304"
-          }
+          "message": "Expected status code '200', but got '304'."
         }
       ]
     }
