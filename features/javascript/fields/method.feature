@@ -36,11 +36,7 @@ Feature: Method validation
       },
       "errors": [
         {
-          "message": "Expected method 'POST', but got 'PUT'.",
-          "values": {
-            "expected": "POST",
-            "actual": "PUT"
-          }
+          "message": "Expected method 'POST', but got 'PUT'."
         }
       ]
     }

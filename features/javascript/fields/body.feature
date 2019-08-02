@@ -85,11 +85,7 @@ Feature: Body validation
       },
       "errors": [
         {
-          "message": "Can't validate actual media type 'text/plain' against the expected media type 'application/json'.",
-          "values": {
-            "expected": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Locke\"\n}",
-            "actual": "Textual body"
-          }
+          "message": "Can't validate actual media type 'text/plain' against the expected media type 'application/json'."
         }
       ]
     }
@@ -123,11 +119,7 @@ Feature: Body validation
         },
         "errors": [
           {
-            "message": "Can't validate actual media type 'application/json' against the expected media type 'text/plain'.",
-            "values": {
-              "expected": "Textual body",
-              "actual": "{\n  \"userId\": 1\n}"
-            }
+            "message": "Can't validate actual media type 'application/json' against the expected media type 'text/plain'."
           }
         ]
       }
