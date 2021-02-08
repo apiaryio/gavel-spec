@@ -31,6 +31,6 @@
   "author": "Apiary Czech Republic, s.r.o. <support@apiary.io>",
   "license": "MIT",
   "devDependencies": {
-    "semantic-release": "17.3.7"
+    "semantic-release": "17.3.8"
   }
 }
