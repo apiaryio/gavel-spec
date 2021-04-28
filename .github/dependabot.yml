@@ -1,0 +1,21 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "13:00"
+  open-pull-requests-limit: 10
+  labels:
+  - dependencies
+  ignore:
+  - dependency-name: semantic-release
+    versions:
+    - 17.3.8
+    - 17.3.9
+    - 17.4.0
+    - 17.4.1
+  commit-message:
+    prefix: fix
+    prefix-development: chore
+    include: scope
